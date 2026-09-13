@@ -1,0 +1,49 @@
+\section{If $\frac{dP}{dt} = rP - k$, $P(0) = P_0$, then solve this equation and make a realistic comment regarding the solution.\textcolor{green}{2020}}
+\textbf{Solution:}
+
+Given differential equation:
+\begin{equation*}
+    \frac{dP}{dt} = rP - k, \quad P(0) = P_0
+\end{equation*}
+
+Separating variables:
+\begin{align*}
+    \frac{dP}{rP - k} &= dt \\[1ex]
+    \frac{dP}{r\left(P - \frac{k}{r}\right)} &= dt \\[1ex]
+    \implies \frac{dP}{P - \frac{k}{r}} &= r \, dt
+\end{align*}
+
+Integrating both sides:
+\begin{align*}
+    \int \frac{dP}{P - \frac{k}{r}} &= \int r \, dt \\[1ex]
+    \ln\left(P - \frac{k}{r}\right) &= rt + c \\[1ex]
+    P - \frac{k}{r} &= e^{rt + c} \\[1ex]
+    P - \frac{k}{r} &= A e^{rt} \quad \text{where } A = e^c \\[1ex]
+    \implies P &= \frac{k}{r} + A e^{rt} \tag{i}
+\end{align*}
+
+Applying the initial condition $P(0) = P_0$:
+\begin{align*}
+    P_0 &= \frac{k}{r} + A e^0 \\[1ex]
+    \implies A &= P_0 - \frac{k}{r}
+\end{align*}
+
+Substituting $A$ into equation (i):
+\begin{equation}
+    P(t) = \frac{k}{r} + \left(P_0 - \frac{k}{r}\right)e^{rt} \tag{ii}
+\end{equation}
+
+which is the required solution.\\
+
+From equation (ii), the dynamics of the population depend on the initial population $P_0$ relative to the critical threshold $\frac{k}{r}$:
+
+\begin{itemize}
+    \item \textbf{Growth Phase $\left(P_0 > \frac{k}{r}\right)$:} 
+    If the initial population $P_0$ is greater than $\frac{k}{r}$, the term $\left(P_0 - \frac{k}{r}\right)$ is positive, causing $P(t)$ to grow exponentially over time.
+
+    \item \textbf{Extinction Phase $\left(P_0 < \frac{k}{r}\right)$:} 
+    If the initial population $P_0$ is less than $\frac{k}{r}$, the harvesting rate $k$ exceeds the natural growth rate $rP_0$. Consequently, $P(t)$ decreases over time and eventually reaches zero (extinction).
+
+    \item \textbf{Equilibrium Phase $\left(P_0 = \frac{k}{r}\right)$:} 
+    If $P_0 = \frac{k}{r}$, the population remains perfectly constant at $P(t) = \frac{k}{r}$ for all time $t \ge 0$.
+\end{itemize}

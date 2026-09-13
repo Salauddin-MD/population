@@ -1,0 +1,85 @@
+\section{Describe logistic model/Verhulst model. Find its solution. Also find the ultimate/maximum population.}
+We have the Malthusian model:
+\begin{align*}
+    \frac{dN}{dt} &= kN \tag{1}
+\end{align*}
+
+The solution of (1) is:
+\begin{align*}
+    N &= N_0 e^{kt} \tag{2}
+\end{align*}
+
+We see that this solution gives accurate results only for small time and population. Therefore, we need to modify model (1). Verhulst assumed that $k$ is a function of population $N$ instead of a constant:
+\begin{align*}
+    \frac{dN}{dt} &= f(N) N \tag{3}
+\end{align*}
+
+From reality, when the population is small, it grows rapidly, and after a fixed amount of population, it decreases, i.e.:
+\begin{align*}
+    f(N) &= r - aN
+\end{align*}
+
+Therefore, equation (3) becomes:
+\begin{align*}
+    \frac{dN}{dt} &= (r - aN) N \\
+    \implies \frac{dN}{dt} &= r \left(1 - \frac{aN}{r}\right) N \\
+    \implies \frac{dN}{dt} &= r \left(1 - \frac{N}{K}\right) N \tag{4}
+\end{align*}
+
+where $K = \frac{r}{a}$ is the carrying capacity. Here, equation (4) is called the Verhulst or logistic population model.
+
+---
+
+\textbf{2nd Part: Solution of the Logistic Equation}
+
+From (4), separating variables:
+\begin{align*}
+    \frac{dN}{N\left(1 - \frac{N}{K}\right)} &= r \, dt \\
+    \left(\frac{1}{N} + \frac{\frac{1}{K}}{1 - \frac{N}{K}}\right) dN &= r \, dt
+\end{align*}
+
+Integrating both sides:
+\begin{align*}
+    \ln N + \frac{1}{K} \cdot \left(-K \ln\left(1 - \frac{N}{K}\right)\right) &= rt + \ln A \\
+    \ln N - \ln\left(1 - \frac{N}{K}\right) &= rt + \ln A \\
+    \ln\left(\frac{N}{1 - \frac{N}{K}}\right) &= rt + \ln A \\
+    \frac{N}{1 - \frac{N}{K}} &= Ae^{rt} \\
+    \frac{KN}{K - N} &= Ae^{rt}  \\
+    \frac{KN}{K - N} &= A e^{rt} \tag{5}\\
+    KN &= A(K - N) e^{rt} \\
+    KN &= A K e^{rt} - A N e^{rt} \\
+    N\left(K + A e^{rt}\right) &= A K e^{rt} \\
+    N &= \frac{A K e^{rt}}{K + A e^{rt}} \tag{6}
+\end{align*}
+
+which is the general solution.
+
+Suppose when $t = 0$, $N = N_0$. Then from equation (5):
+\begin{align*}
+    \frac{K N_0}{K - N_0} &= A e^{r(0)} \implies A = \frac{K N_0}{K - N_0}
+\end{align*}
+
+Substituting $A$ into equation (6):
+\begin{align*}
+    N &= \frac{K \left(\frac{K N_0}{K - N_0}\right) e^{rt}}{K + \left(\frac{K N_0}{K - N_0}\right) e^{rt}} \\
+    &= \frac{K N_0 e^{rt}}{(K - N_0) + N_0 e^{rt}}
+\end{align*}
+
+Dividing numerator and denominator by $e^{rt}$:
+\begin{align*}
+    N &= \frac{K N_0}{N_0 + (K - N_0) e^{-rt}}
+\end{align*}
+
+which is the required particular solution.
+
+---
+
+\textbf{3rd Part: Ultimate Solution (Limiting Behavior)}
+
+The maximum population (ultimate carrying capacity) as $t \to \infty$ is:
+\begin{align*}
+    N_{\max} &= \lim_{t \to \infty} \frac{K N_0}{N_0 + (K - N_0) e^{-rt}} \\
+    &= \frac{K N_0}{N_0 + (K - N_0)(0)} \\
+    &= \frac{K N_0}{N_0} = K \\
+    \implies N_{\max} &= K
+\end{align*}

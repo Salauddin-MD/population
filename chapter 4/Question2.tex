@@ -1,0 +1,30 @@
+\section{Assume that, the population of Rajshahi city increases at a rate proportional to the number of inhabitants at any time $t$. If the population in double in 40 years, how many years it will be triple.}
+According to the problem, we get:
+\begin{align*}
+    \frac{dN}{dt} &= kN \sidenote{1}
+\end{align*}
+
+The general solution of (1) is:
+\begin{align*}
+    N(t) &= N_0 e^{kt} \sidenote{2}
+\end{align*}
+
+Given that when $t = 40$, $N = 2N_0$:
+\begin{align*}
+    2N_0 &= N_0 e^{40k} \\
+    40k &= \ln 2 \\
+    k &= \frac{\ln 2}{40} \\
+    \implies k &\approx 0.017328
+\end{align*}
+
+Suppose the population will triple in time $T$, i.e., $N(T) = 3N_0$:
+\begin{align*}
+    3N_0 &= N_0 e^{kT} \\
+    e^{kT} &= 3 \\
+    kT &= \ln 3 \\
+    T &= \frac{\ln 3}{k} \\
+    T &= \frac{\ln 3}{0.017328} \\
+    \implies T &\approx 63.400986 \text{ years}
+\end{align*}
+
+So, the population will triple in $63.400986$ years (or approximately $63.40$ years from $t = 0$).

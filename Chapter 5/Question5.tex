@@ -1,0 +1,108 @@
+\section{The population $N(t)$ (in million) of Bangladesh satisfies the model $\frac{dN}{dt} = \alpha N - \beta N^2$ where $t$ is measured in years. If $N(2000) = 127.66$, $N(2010) = 147.56$ and $N(2020) = 164.67$, find the population of Bangladesh in 2030.\textcolor{green}{(2020)}}
+\textbf{Solution:}
+
+Given model:
+\begin{align*}
+    \frac{dN}{dt} &= \alpha N - \beta N^2  \\
+    \implies \frac{dN}{N(\alpha - \beta N)} &= dt \\
+    \implies \frac{1}{\alpha} \left( \frac{1}{N} + \frac{\beta}{\alpha - \beta N} \right) dN &= dt \\
+    \implies \ln N - \ln(\alpha - \beta N) &= \alpha t + \ln C \\
+    \implies \ln \left( \frac{N}{\alpha - \beta N} \right) &= \ln \left( C e^{\alpha t} \right) \\
+    \implies \frac{N}{\alpha - \beta N} &= C e^{\alpha t}
+\end{align*}
+
+Let $A = C$:
+\begin{align*}
+    \frac{N}{\alpha - \beta N} &= A e^{\alpha t} 
+\end{align*}
+
+\textbf{Solving for $N(t)$:}
+
+\begin{align*}
+    N &= A e^{\alpha t} (\alpha - \beta N) \\
+    N + \beta A e^{\alpha t} N &= A \alpha e^{\alpha t} \\
+    N \left(1 + \beta A e^{\alpha t}\right) &= A \alpha e^{\alpha t} \\
+    N &= \frac{A \alpha e^{\alpha t}}{1 + \beta A e^{\alpha t}} = \frac{\alpha}{\beta + \frac{1}{A} e^{-\alpha t}}
+\end{align*}
+
+Let $c = \frac{1}{A}$:
+\begin{align*}
+    N(t) &= \frac{\alpha}{\beta + c e^{-\alpha t}} \sidenote{i}
+\end{align*}
+
+which is the required solution at any time $t$.
+
+---
+
+\textbf{Given initial/boundary conditions:}
+\begin{itemize}
+    \item $N(2000) = 127.66$
+    \item $N(2010) = 147.56$
+    \item $N(2020) = 164.67$
+\end{itemize}
+
+From the solution formula:
+\begin{align*}
+    N(2000) &= \frac{\alpha}{\beta + c e^{-2000\alpha}} \\
+    \implies 127.66 &= \frac{\alpha}{\beta + c e^{-2000\alpha}} \sidenote{ii} \\[1ex]
+    147.56 &= \frac{\alpha}{\beta + c e^{-2010\alpha}} \sidenote{iii} \\[1ex]
+    164.67 &= \frac{\alpha}{\beta + c e^{-2020\alpha}} \sidenote{iv}
+\end{align*}
+
+Dividing (ii) by (iii):
+\begin{align*}
+    \frac{127.66}{147.56} &= \frac{\beta + c e^{-2010\alpha}}{\beta + c e^{-2000\alpha}} \\
+    \frac{127.66}{147.56} - 1 &= \frac{\beta + c e^{-2010\alpha}}{\beta + c e^{-2000\alpha}} - 1 \\
+    \frac{127.66 - 147.56}{147.56} &= \frac{c \left(e^{-2010\alpha} - e^{-2000\alpha}\right)}{\beta + c e^{-2000\alpha}} \\
+    \frac{-19.90}{147.56} &= \frac{c \left(e^{-2010\alpha} - e^{-2000\alpha}\right)}{\beta + c e^{-2000\alpha}} \sidenote{v}
+\end{align*}
+
+Dividing equation (ii) by (iv):
+\begin{align*}
+    \frac{127.66}{164.67} &= \frac{\beta + c e^{-2020\alpha}}{\beta + c e^{-2000\alpha}} \\
+    \implies \frac{127.66 - 164.67}{164.67} &= \frac{c \left(e^{-2020\alpha} - e^{-2000\alpha}\right)}{\beta + c e^{-2000\alpha}} \\
+    \implies \frac{-37.01}{164.67} &= \frac{c \left(e^{-2020\alpha} - e^{-2000\alpha}\right)}{\beta + c e^{-2000\alpha}} \sidenote{vii}
+\end{align*}
+Dividing (v) by (vii):
+\begin{align*}
+    \left(\frac{-19.90}{147.56}\right) \times \left(\frac{164.67}{-37.01}\right) &= \frac{e^{-2010\alpha} - e^{-2000\alpha}}{e^{-2020\alpha} - e^{-2000\alpha}} \\
+    \implies 0.600039 &= \frac{e^{-2000\alpha}\left(e^{-10\alpha} - 1\right)}{e^{-2000\alpha}\left(e^{-20\alpha} - 1\right)} \\
+    \implies 0.600039 &= \frac{e^{-10\alpha} - 1}{e^{-20\alpha} - 1} = \frac{e^{-10\alpha} - 1}{\left(e^{-10\alpha}\right)^2 - 1} \\
+    \implies 0.600039 &= \frac{1}{e^{-10\alpha} + 1} \\
+    \implies e^{-10\alpha} + 1 &= 1.666558 \\
+    \implies e^{-10\alpha} &= 0.666558 \\
+    \implies \alpha &= -\frac{1}{10} \ln(0.666558) \\
+    \implies \alpha &= 0.0405628
+\end{align*}
+
+---
+
+From equations (iii) and (iv):
+\begin{align*}
+    \beta + c e^{-2010\alpha} &= \frac{\alpha}{147.56 \times 10^6} \sidenote{viii} \\[1ex]
+    \beta + c e^{-2020\alpha} &= \frac{\alpha}{164.67 \times 10^6} \sidenote{ix}
+\end{align*}
+
+Subtracting (ix) - (viii):
+\begin{align*}
+    c\left(e^{-2020\alpha} - e^{-2010\alpha}\right) &= \frac{\alpha}{10^6} \left(\frac{1}{164.67} - \frac{1}{147.56}\right) \\
+    \implies c &= \frac{0.0405628}{10^6 \times \left(e^{-2020\alpha} - e^{-2010\alpha}\right)} \left(\frac{1}{164.67} - \frac{1}{147.56}\right) \\
+    \implies c &= 2.19455 \times 10^{25}
+\end{align*}
+
+From equation (viii):
+\begin{align*}
+    \beta + 2.19455 \times 10^{25} \times e^{-2010 \times 0.0405628} &= \frac{0.0405628}{147.56 \times 10^6} \\
+    \implies \beta + 8.56609 \times 10^{-11} &= 2.74890 \times 10^{-10} \\
+    \implies \beta &= 2.74890 \times 10^{-10} - 8.56609 \times 10^{-11} \\
+    \implies \beta &= 1.892283 \times 10^{-10}
+\end{align*}
+
+When $t = 2030$:
+\begin{align*}
+    N(2030) &= \frac{0.0405628}{1.892283 \times 10^{-10} + 2.19455 \times 10^{25} e^{-0.0405628 \times 2030}} \\
+    &= \frac{0.0405628}{2.272884 \times 10^{-10}} \\
+    &\approx 178463981.7
+\end{align*}
+
+$$\mathbf{N(2030) \approx 178.46 \text{ million}}$$

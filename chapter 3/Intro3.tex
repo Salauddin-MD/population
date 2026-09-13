@@ -1,0 +1,34 @@
+\chapter{Stability Theorem}
+\section*{ABC}
+\begin{itemize}
+    \item positive definite
+    \item Positive semi-definite
+    \item Negative definite
+    \item Negative semi-definite
+    \item Liapunov function
+    \item Trivial solution
+    \item system of a non linear equation
+    \section*{Poincaré–Liapunov Theorem on Linearization}
+
+\subsection*{Statement}
+
+Let the non-linear autonomous system be given by:
+\begin{equation}
+    \begin{aligned}
+        \dot{x} &= ax + by + P(x, y) \\
+        \dot{y} &= cx + dy + Q(x, y)
+    \end{aligned} \sidenote{1}
+\end{equation}
+
+If $P(x, y)$ and $Q(x, y)$ are continuous in a neighborhood of the origin $(0,0)$ and satisfy the conditions:
+\begin{align*}
+    \lim_{(x, y) \to (0,0)} \frac{P(x, y)}{\sqrt{x^2 + y^2}} &= 0 \\[0.5em]
+    \lim_{(x, y) \to (0,0)} \frac{Q(x, y)}{\sqrt{x^2 + y^2}} &= 0
+\end{align*}
+
+then the characteristic nature and qualitative stability of the critical point at the origin $(0,0)$ for the non-linear system (1) is the same as that of the corresponding linearized system:
+\item Squeez Theorem:\\
+Let $f(x, y)$, $g(x, y)$, and $h(x, y)$ be functions defined on a neighborhood of $(x_0, y_0)$, except possibly at $(x_0, y_0)$ itself.If for all $(x, y) \neq (x_0, y_0)$ in that neighborhood:$$g(x, y) \le f(x, y) \le h(x, y)$$and if:$$\lim_{(x,y) \to (x_0, y_0)} g(x, y) = L \quad \text{and} \quad \lim_{(x,y) \to (x_0, y_0)} h(x, y) = L$$then:$$\lim_{(x,y) \to (x_0, y_0)} f(x, y) = L$$
+For example:\\
+$$\left\vert{} \frac{-x^2}{\sqrt{x^2 + y^2}} \right\vert{} = \frac{\vert{}x\vert{} \cdot \vert{}x\vert{}}{\sqrt{x^2 + y^2}} \le \frac{\vert{}x\vert{} \cdot \sqrt{x^2 + y^2}}{\sqrt{x^2 + y^2}} = \vert{}x\vert{} \left[\vert{}x\vert{} \le \sqrt{x^2+y^2}\right]$$Thus:$$0 \le \left\vert{} \frac{-x^2}{\sqrt{x^2 + y^2}} \right\vert{} \le \vert{}x\vert{}$$Taking the limit as $(x,y) \to (0,0)$:$$\lim_{(x,y) \to (0,0)} 0 = 0 \quad \text{and} \quad \lim_{(x,y) \to (0,0)} \vert{}x\vert{} = 0$$By the Squeeze Theorem:$$\lim_{(x,y) \to (0,0)} \frac{-x^2}{\sqrt{x^2 + y^2}} = 0$$
+\end{itemize}

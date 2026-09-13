@@ -1,0 +1,49 @@
+\section{Discuss the stability and nature of the critical point of the non linear system and sketch the phase portrait.}
+\begin{align*}
+    \dot{x} &= \sin x - 4y \\
+    \dot{y} &= \sin 2x - 5y
+\end{align*}
+Given non-linear system:
+\begin{align*}
+    \dot{x} &= \sin x - 4y \sidenote{1} \\
+    \dot{y} &= \sin 2x - 5y
+\end{align*}
+
+Using the Maclaurin series expansion for $\sin x$ and $\sin 2x$:
+\begin{align*}
+    \dot{x} &= \left( x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots \right) - 4y \\
+    \dot{y} &= \left( 2x - \frac{(2x)^3}{3!} + \frac{(2x)^5}{5!} - \dots \right) - 5y
+\end{align*}
+
+Rearranging into linear and non-linear terms:
+\begin{align*}
+    \dot{x} &= x - 4y - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots \\
+    \dot{y} &= 2x - 5y - \frac{(2x)^3}{3!} + \frac{(2x)^5}{5!} - \dots
+\end{align*}
+
+Comparing with $\dot{x} = ax + by + P_1(x, y)$ and $\dot{y} = cx + dy + Q_1(x, y)$:
+\begin{align*}
+    a &= 1, \quad b = -4, \quad c = 2, \quad d = -5 \sidenote{Linear coefficients} \\
+    P_1(x, y) &= -\frac{x^3}{3!} + \frac{x^5}{5!} - \dots \\
+    Q_1(x, y) &= -\frac{(2x)^3}{3!} + \frac{(2x)^5}{5!} - \dots
+\end{align*}
+
+Clearly, $P_1(x, y)$ and $Q_1(x, y)$ are polynomial-type series, so they are continuous and differentiable everywhere.
+
+Checking the Poincaré--Liapunov limit conditions:
+\begin{align*}
+    \lim_{(x, y) \to (0, 0)} \frac{P_1(x, y)}{\sqrt{x^2 + y^2}} &= 0 \quad \text{and} \quad \lim_{(x, y) \to (0, 0)} \frac{Q_1(x, y)}{\sqrt{x^2 + y^2}} = 0 \sidenote{Linearization holds}
+\end{align*}
+
+Now, the characteristic equation of the corresponding linear system is:
+\begin{align*}
+    \lambda^2 - (a + d)\lambda + (ad - bc) &= 0 \sidenote{$\det(A - \lambda I) = 0$} \\
+    \lambda^2 - (1 - 5)\lambda + (-5 + 8) &= 0 \\
+    \lambda^2 + 4\lambda + 3 &= 0 \\
+    \lambda^2 + 3\lambda + \lambda + 3 &= 0 \\
+    \lambda(\lambda + 3) + 1(\lambda + 3) &= 0 \\
+    (\lambda + 1)(\lambda + 3) &= 0 \\
+    \implies \lambda &= -1, -3 \sidenote{Eigenvalues}
+\end{align*}
+
+Since both roots are real, distinct, and negative ($\lambda_1, \lambda_2 < 0$), the critical point $(0,0)$ of the system is a \textbf{stable node}.

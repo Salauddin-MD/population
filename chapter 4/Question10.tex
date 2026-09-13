@@ -1,0 +1,79 @@
+\section{Suppose the population of Bangladesh grows according to the Malthusian model. The population of Bangladesh was estimated to be $170.00\text{ million}$ in $2010$ and $180.00\text{ million}$ in $2020$. Estimate the population of Bangladesh in the year $2030$ and also in $2040$.\textcolor{green}{2021}}
+\textbf{Solution:}
+
+The Malthusian model is given by:
+\begin{equation}
+    \frac{dN}{dt} = kN \tag{i}
+\end{equation}
+
+The solution to this model is:
+\begin{equation}
+    N = N_0 e^{k(t - t_0)} \tag{ii}
+\end{equation}
+
+---
+
+\textbf{1st Case:}
+
+Here,
+\begin{align*}
+    N &= 180.00 \text{ million} \\
+    N_0 &= 170.00 \text{ million} \\
+    t_0 &= 2010 \\
+    t &= 2020
+\end{align*}
+
+From equation (ii):
+\begin{align*}
+    180 &= 170 \, e^{k(2020 - 2010)} \\
+    \implies e^{10k} &= \frac{180}{170} = \frac{18}{17} \\
+    \implies k &= \frac{1}{10} \ln\left(\frac{18}{17}\right) \\
+    &= 0.0057158
+\end{align*}
+
+Substituting $k$ back into equation (ii):
+\begin{equation}
+    N = N_0 e^{0.0057158(t - t_0)} \tag{iii}
+\end{equation}
+
+---
+
+\textbf{2nd Case:}
+
+Here,
+\begin{align*}
+    N_0 &= 180.00 \text{ million} \\
+    t_0 &= 2020 \\
+    t &= 2030
+\end{align*}
+
+From equation (iii), we get:
+\begin{align*}
+    N &= 180 \, e^{0.0057158 \times (2030 - 2020)} \\
+    &= 180 \, e^{0.0057158 \times 10} \\
+    &= 190 \text{ million}
+\end{align*}
+
+---
+
+\textbf{3rd Case:}
+
+Here,
+\begin{align*}
+    N_0 &= 190 \text{ million} \\
+    t_0 &= 2030 \\
+    t &= 2040
+\end{align*}
+
+Calculating the updated growth rate parameter $k$:
+\begin{align*}
+    k &= \frac{1}{10} \ln\left(\frac{19}{18}\right) \\
+    &= 5.40672 \times 10^{-3} \\
+    &= 0.00540672
+\end{align*}
+
+Estimating population for the year 2040:
+\begin{align*}
+    N &= 190 \, e^{0.00540672 \times (2040 - 2030)} \\
+    &= 200.555 \text{ million} \quad \mathbf{(\text{Ans})}
+\end{align*}

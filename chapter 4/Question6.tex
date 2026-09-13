@@ -1,0 +1,53 @@
+\section{A population grows according to the model,
+$$\frac{dN}{dt} = 1 - \exp\left[ 1 - r_0\left(1 - \frac{N}{K}\right) \right],$$
+where $r_0$ and $K$ are positive constants. Determine the equilibrium state and its stability.}
+\textbf{Solution:}
+
+We have:
+\begin{align*}
+    \frac{dN}{dt} &= 1 - \exp\left[ 1 - r_0 \left(1 - \frac{N}{K}\right) \right] \sidenote{1}
+\end{align*}
+
+For equilibrium population, set $\frac{dN}{dt} = 0$:
+\begin{align*}
+    1 - \exp\left[ 1 - r_0 \left(1 - \frac{N}{K}\right) \right] &= 0 \\
+    \exp\left[ 1 - r_0 \left(1 - \frac{N}{K}\right) \right] &= 1
+\end{align*}
+
+Taking natural logarithm on both sides:
+\begin{align*}
+    1 - r_0 \left(1 - \frac{N}{K}\right) &= 0 \\
+    r_0 \left(1 - \frac{N}{K}\right) &= 1 \\
+    1 - \frac{N}{K} &= \frac{1}{r_0} \\
+    \frac{N}{K} &= 1 - \frac{1}{r_0} \\
+    \implies N &= K \left(1 - \frac{1}{r_0}\right) \sidenote{Equilibrium population}
+\end{align*}
+
+which is the equilibrium population.\\
+\textbf{Stability Analysis:}
+
+Put $N = K \left(1 - \frac{1}{r_0}\right) + \varepsilon$, where $\varepsilon \ll 1$.
+
+Substituting into (1):
+\begin{align*}
+    \frac{d}{dt} \left[ K \left(1 - \frac{1}{r_0}\right) + \varepsilon \right] &= 1 - \exp\left[ 1 - r_0 \left(1 - \frac{1}{K}\left[ K\left(1 - \frac{1}{r_0}\right) + \varepsilon \right]\right) \right] \\
+    \frac{d\varepsilon}{dt} &= 1 - \exp\left[ 1 - r_0 \left(1 - 1 + \frac{1}{r_0} - \frac{\varepsilon}{K}\right) \right] \\
+    &= 1 - \exp\left( \frac{\varepsilon r_0}{K} \right)
+\end{align*}
+
+Expanding using Taylor series:
+\begin{align*}
+    \frac{d\varepsilon}{dt} &= 1 - \left[ 1 + \frac{\varepsilon r_0}{K} + \frac{(\varepsilon r_0 / K)^2}{2!} + \dots \right] \\
+    \frac{d\varepsilon}{dt} &= -\frac{\varepsilon r_0}{K} \sidenote{Neglecting higher-order terms of $\varepsilon$} \\
+    \frac{d\varepsilon}{\varepsilon} &= -\frac{r_0}{K} \, dt \sidenote{2}
+\end{align*}
+
+Integrating (2):
+\begin{align*}
+    \varepsilon(t) &= \varepsilon_0 e^{-\frac{r_0}{K}t}
+\end{align*}
+
+As $t \to \infty$, $\varepsilon(t) \to 0$.
+
+$$\therefore N^* = K \left(1 - \frac{1}{r_0}\right) \text{ is asymptotically stable.}$$
+\input{chapter 4/Question7}

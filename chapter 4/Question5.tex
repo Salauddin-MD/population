@@ -1,0 +1,24 @@
+\section{Find the doubling time population for logistic model.}
+We have:
+\begin{align*}
+    \frac{dN}{dt} &= r \left(1 - \frac{N}{K}\right) N \sidenote{1}
+\end{align*}
+
+We know the solution of (1) is:
+\begin{align*}
+    N &= \frac{N_0 K}{N_0 + (K - N_0) e^{-rt}} \sidenote{2}
+\end{align*}
+
+Suppose when $t$ becomes $T$, the population will double ($N = 2N_0$). Then from (2), we get:
+\begin{align*}
+    2N_0 &= \frac{N_0 K}{N_0 + (K - N_0) e^{-rT}} \\
+    2N_0 \left[ N_0 + (K - N_0) e^{-rT} \right] &= N_0 K \\
+    2N_0 + 2(K - N_0) e^{-rT} &= K \\
+    2(K - N_0) e^{-rT} &= K - 2N_0 \\
+    e^{-rT} &= \frac{K - 2N_0}{2(K - N_0)} \\
+    e^{rT} &= \frac{2(K - N_0)}{K - 2N_0} \\
+    rT &= \ln \left[ \frac{2(K - N_0)}{K - 2N_0} \right] \\
+    \implies T &= \frac{1}{r} \ln \left[ \frac{2(K - N_0)}{K - 2N_0} \right] \sidenote{Required doubling time}
+\end{align*}
+
+which is the required doubling time.

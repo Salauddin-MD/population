@@ -1,0 +1,48 @@
+\section{Determine the extinction time and tripling time  population govern by the Model }
+$$ \frac{dN}{dt} = N(4-N) - 4$$
+\section*{Population Extinction and Tripling Time}
+
+Given that,
+\begin{align*}
+    \frac{dN}{dt} &= N(4-N) - 4 \\
+    \Rightarrow \frac{dN}{dt} &= 4N - N^2 - 4 \\
+    \Rightarrow \frac{dN}{dt} &= -(N-2)^2 \\
+    \Rightarrow \frac{dN}{(N-2)^2} &= -dt \sidenote{separating variables} \\
+    \Rightarrow -(N-2)^{-1} &= -t - c \sidenote{by integrating} \\
+    \Rightarrow \frac{1}{N-2} &= t + c
+\end{align*}
+
+When $t = 0$, $N = N_0$,
+\begin{align*}
+    \Rightarrow c &= \frac{1}{N_0 - 2}
+\end{align*}
+
+\begin{align*}
+    \therefore \frac{1}{N-2} &= t + \frac{1}{N_0 - 2} \\
+    \Rightarrow \frac{1}{N-2} &= \frac{(N_0 - 2)t + 1}{N_0 - 2} \\
+    \Rightarrow N - 2 &= \frac{N_0 - 2}{(N_0 - 2)t + 1} \sidenote{taking reciprocal} \\
+    \Rightarrow N &= \frac{2(N_0 - 2)t + 2 + N_0 - 2}{(N_0 - 2)t + 1} \\
+    \Rightarrow N &= \frac{2(N_0 - 2)t + N_0}{(N_0 - 2)t + 1} \\
+    \Rightarrow N &= \frac{N_0 + 2N_0 t - 4t}{(N_0 - 2)t + 1}
+\end{align*}
+
+Suppose $t = T$, $N = 0$,
+\begin{align*}
+    N_0 + 2N_0 T - 4T &= 0 \\
+    \Rightarrow 4T - 2T N_0 &= N_0 \\
+    \Rightarrow T &= \frac{N_0}{4 - 2N_0} \\
+    \Rightarrow T &= \frac{N_0}{2(2 - N_0)}, \quad 0 < N_0 < 2
+\end{align*}
+which is required time.
+
+\vspace{1em}
+\noindent\textbf{Note: Tripling time,} \\
+Suppose when $t \to T$, the population $N$ will be $3N_0$, then
+\begin{align*}
+    3N_0 &= \frac{N_0(2T + 1) - 4T}{N_0 T - 2T + 1} \\
+    \Rightarrow 3N_0^2 T - 6N_0 T + 3N_0 &= 2N_0 T + N_0 - 4T \sidenote{by cross-multiplying} \\
+    \Rightarrow 3N_0^2 T - 8N_0 T + 2N_0 + 4T &= 0 \\
+    \Rightarrow 3N_0^2 T - 8N_0 T + 4T &= -2N_0 \\
+    \Rightarrow T(3N_0^2 - 8N_0 + 4) &= -2N_0 \\
+    \therefore T &= \frac{-2N_0}{3N_0^2 - 8N_0 + 4}
+\end{align*}

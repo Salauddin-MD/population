@@ -1,0 +1,97 @@
+\section{Find critical point.Discuss the stability and nature of the critical point of the non linear system and sketch the phase portrait.}
+\begin{align*}
+    \frac{dx}{dt} &= y - x^2 \\
+    \frac{dy}{dt} &= 27x - y^2
+\end{align*}
+Given non-linear system:
+\begin{align*}
+    \frac{dx}{dt} &= y - x^2 \sidenote{1} \\
+    \frac{dy}{dt} &= 27x - y^2 \sidenote{2}
+\end{align*}
+
+For critical points, set $\frac{dx}{dt} = 0$ and $\frac{dy}{dt} = 0$:
+\begin{align*}
+    y - x^2 &= 0 \sidenote{3} \\
+    27x - y^2 &= 0 \sidenote{4}
+\end{align*}
+
+From (3), $y = x^2$. Substituting into (4):
+\begin{align*}
+    27x - (x^2)^2 &= 0 \\
+    x(27 - x^3) &= 0 \implies x = 0, \, 3
+\end{align*}
+
+For $x = 0 \implies y = 0$, and for $x = 3 \implies y = 9$.
+Thus, the critical points are $(0, 0)$ and $(3, 9)$.
+
+\begin{align*}
+    \text{\textbf{For Critical Point }} (0, 0): & \nonumber
+\end{align*}
+
+Checking Poincaré--Liapunov limit conditions:
+\begin{align*}
+    \lim_{(x, y) \to (0, 0)} \frac{-x^2}{\sqrt{x^2 + y^2}} &= 0 \quad \text{and} \quad \lim_{(x, y) \to (0, 0)} \frac{-y^2}{\sqrt{x^2 + y^2}} = 0 \sidenote{Linearization holds}
+\end{align*}
+
+The corresponding linearized system is:
+\begin{align*}
+    \frac{dx}{dt} &= y, \quad \frac{dy}{dt} = 27x \implies a = 0, \, b = 1, \, c = 27, \, d = 0
+\end{align*}
+
+The characteristic equation is:
+\begin{align*}
+    \lambda^2 - 27 &= 0 \implies \lambda = \pm \sqrt{27} = \pm 3\sqrt{3} \sidenote{Opposite real roots}
+\end{align*}
+
+Since roots are real with opposite signs, the critical point $(0, 0)$ is an \textbf{unstable saddle point}.
+
+\begin{align*}
+    \text{\textbf{For Critical Point }} (3, 9): & \nonumber
+\end{align*}
+
+Transform coordinates to shift the origin to $(3, 9)$:
+\begin{align*}
+    x &= \xi + 3, \quad y = \eta + 9
+\end{align*}
+
+Substituting into (1) and (2):
+\begin{align*}
+    \dot{\xi} &= (\eta + 9) - (\xi + 3)^2 = \eta + 9 - \xi^2 - 6\xi - 9 = -6\xi + \eta - \xi^2 \sidenote{5} \\
+    \dot{\eta} &= 27(\xi + 3) - (\eta + 9)^2 = 27\xi + 81 - \eta^2 - 18\eta - 81 = 27\xi - 18\eta - \eta^2
+\end{align*}
+
+Checking limit conditions for non-linear terms $P_1 = -\xi^2$ and $Q_1 = -\eta^2$:
+\begin{align*}
+    \lim_{(\xi, \eta) \to (0, 0)} \frac{-\xi^2}{\sqrt{\xi^2 + \eta^2}} &= 0 \quad \text{and} \quad \lim_{(\xi, \eta) \to (0, 0)} \frac{-\eta^2}{\sqrt{\xi^2 + \eta^2}} = 0
+\end{align*}
+
+The corresponding linearized system is:
+\begin{align*}
+    \dot{\xi} &= -6\xi + \eta, \quad \dot{\eta} = 27\xi - 18\eta \implies a = -6, \, b = 1, \, c = 27, \, d = -18
+\end{align*}
+
+The characteristic equation is:
+\begin{align*}
+    \lambda^2 - (-6 - 18)\lambda + (108 - 27) &= 0 \\
+    \lambda^2 + 24\lambda + 81 &= 0 \\
+    \lambda &= \frac{-24 \pm \sqrt{24^2 - 4(1)(81)}}{2} \\
+    \lambda &= \frac{-24 \pm \sqrt{252}}{2} = -12 \pm \sqrt{63} \sidenote{Both roots $< 0$}
+\end{align*}
+
+Since both roots are real, distinct, and negative, the critical point $(3, 9)$ is a \textbf{stable node}.
+\subsection*{Positive Definite:}
+A function $V(x, y)$ is said to be positive definite in a domain $D$ if $V(0,0) = 0$ and $V(x, y) > 0$ for all For any $(x, y) \neq (0, 0)$.
+\begin{itemize}
+    \item \textbf{Example:} Consider $V(x, y) = x^2 + y^2$, domain $D = \mathbb{R}^2$.
+\end{itemize}
+
+\subsection*{Positive Semi-Definite:}
+A function $V(x, y)$ is said to be positive semi-definite in a domain $D$ if $V(0,0) = 0$ and $V(x, y) \ge 0$ for all For any $(x, y) \neq (0, 0)$.
+\begin{itemize}
+    \item \textbf{Example:} Consider $V(x, y) = x^2 - y^2$, domain $D = \{(x, y) : x \ge y\}$.
+\end{itemize}
+\subsection*{Negative Definite:}
+A function $V(x, y)$ is said to be negative definite in a domain $D$ if $V(0,0) = 0$ and $V(x, y) < 0$ for all For any $(x, y) \neq (0, 0)$
+\begin{itemize}
+    \item \textbf{Example:} Consider $V(x, y) = -(x^2 + y^2)$, domain $D = \mathbb{R}^2$.
+\end{itemize}

@@ -1,0 +1,44 @@
+\section{Discuss the stability and nature of the critical point of the non linear system and sketch the phase portrait.}
+\begin{align*}
+        \dot{x} &= x + 4y - x^2 \\
+        \dot{y} &= 6x - y + 2xy
+    \end{align*}
+\subsection*{Solution}
+
+Given the non-linear system:
+\begin{equation}
+    \begin{aligned}
+        \dot{x} &= x + 4y - x^2 \\
+        \dot{y} &= 6x - y + 2xy
+    \end{aligned} \sidenote{1}
+\end{equation}
+
+Comparing with the standard non-linear system form:
+\begin{align*}
+    \dot{x} &= ax + by + P(x, y) \\
+    \dot{y} &= cx + dy + Q(x, y)
+\end{align*}
+
+we identify:
+\[a = 1, \quad b = 4, \quad c = 6, \quad d = -1\]
+\[P(x, y) = -x^2, \quad Q(x, y) = 2xy\]
+
+\noindent Clearly, $P(x, y)$ and $Q(x, y)$ are continuous functions.
+Evaluating the limits as $(x, y) \to (0,0)$:
+\[\lim_{(x, y) \to (0, 0)} \frac{P(x, y)}{\sqrt{x^2 + y^2}} = \lim_{(x, y) \to (0, 0)} \frac{-x^2}{\sqrt{x^2 + y^2}} = 0\]
+and
+\[\lim_{(x, y) \to (0, 0)} \frac{Q(x, y)}{\sqrt{x^2 + y^2}} = \lim_{(x, y) \to (0, 0)} \frac{2xy}{\sqrt{x^2 + y^2}} = 0\]
+
+Thus, the condition for the Poincaré–Liapunov linearization theorem holds.
+The characteristic equation for the corresponding linear system is:
+\[\lambda^2 - (a + d)\lambda + (ad - bc) = 0\]
+
+Substituting the values $a = 1, b = 4, c = 6, d = -1$:
+\begin{align*}
+    \lambda^2 - \lambda(1 - 1) + [1(-1) - 4(6)] &= 0 \\[0.5em]
+    \lambda^2 - 0\lambda - 1 - 24 &= 0 \\[0.5em]
+    \lambda^2 - 25 &= 0 \\[0.5em]
+    \lambda &= \pm 5
+\end{align*}
+Since the characteristic roots ($\lambda = 5, -5$) are real and of opposite sign, the critical point $(0,0)$ of the non-linear system (1) is an **unstable saddle point**.
+use the phase portrait for saddle point here.

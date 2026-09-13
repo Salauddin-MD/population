@@ -1,0 +1,47 @@
+\section{State and prove Bendixon's non-existence theorem.}
+\subsection*{Statement}
+
+If $P(x, y)$ and $Q(x, y)$ of the system:
+\begin{equation}
+    \begin{aligned}
+        \dot{x} &= P(x, y) \\
+        \dot{y} &= Q(x, y)
+    \end{aligned} \sidenote{1}
+\end{equation}
+have continuous first-order partial derivatives in a simply-connected domain $D$ of the $xy$-plane, and if $\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y}$
+has the same sign throughout $D$, then system (1) has no closed path (periodic solution) in $D$.
+\subsection*{Proof}
+Let $C$ be a closed path in $D$ and $R$ be the region bounded by $C$.
+
+\noindent Then by Green's theorem in the plane, we have:
+\begin{equation}
+    \oint_C \left[ P(x, y) \, dy - Q(x, y) \, dx \right] = \iint_R \left[ \frac{\partial P(x, y)}{\partial x} + \frac{\partial Q(x, y)}{\partial y} \right] dx \, dy \sidenote{2}
+\end{equation}
+where the line integral is taken in the positive (counterclockwise) sense.
+
+\vspace{0.5em}
+\noindent Now, assume that $C$ is a closed path of system (1).
+
+\noindent Let $x = f(t), \, y = g(t)$ be a periodic solution of system (1) representing the closed path $C$ with period $T$.
+
+\noindent Along the trajectory $C$:
+\begin{equation}
+    \begin{aligned}
+        \dot{x} &= \frac{dx}{dt} = \frac{df(t)}{dt} = P(x, y) = P(f(t), g(t)) \\
+        \dot{y} &= \frac{dy}{dt} = \frac{dg(t)}{dt} = Q(x, y) = Q(f(t), g(t))
+    \end{aligned} \sidenote{3}
+\end{equation}
+
+\noindent Substituting (3) into the Left-Hand Side (L.H.S.) of equation (2):
+\begin{align*}
+    \text{L.H.S. of (2)} &= \oint_C \left[ P(x, y) \, dy - Q(x, y) \, dx \right] \\[0.5em]
+    &= \int_0^T \left[ P(f(t), g(t)) \frac{dg}{dt} - Q(f(t), g(t)) \frac{df}{dt} \right] dt \\[0.5em]
+    &= \int_0^T \left[ P(f(t), g(t)) \cdot Q(f(t), g(t)) - Q(f(t), g(t)) \cdot P(f(t), g(t)) \right] dt \quad \text{[Using (3)]} \\[0.5em]
+    &= 0
+\end{align*}
+
+\noindent Substituting this result back into equation (2) yields:
+\begin{equation}
+    \iint_R \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right) dx \, dy = 0 \sidenote{4}
+\end{equation}
+But this double integral can be zero only if $\left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right)$ changes sign in $R$.This is a contradiction.Thus, $C$ is not a path of system (i). Hence, the system (i) has no closed path or periodic solution in $D$.

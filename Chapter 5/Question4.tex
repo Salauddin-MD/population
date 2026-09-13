@@ -1,0 +1,40 @@
+\section{ Describe the two species linear competition model and identify it.\textcolor{red}{(not CL)}}
+Let $x$ and $y$ be two competitor species. Then the model is:
+
+\begin{align*}
+    \frac{dx}{dt} &= ax - by \sidenote{i} \\
+    \frac{dy}{dt} &= -cx + dy \quad ; \, a,b,c,d > 0 \sidenote{ii}
+\end{align*}
+
+This is called the \textbf{linear competition model}.\\
+\textbf{Identification:}
+
+From equation (i), we observe that in the absence of $y$ ($y = 0$), $x$ increases ($\frac{dx}{dt} = ax > 0$), and in the presence of $y$, the growth rate of $x$ decreases due to the $-by$ term.
+
+Again, from equation (ii), we observe that in the absence of $x$ ($x = 0$), the $y$ population increases ($\frac{dy}{dt} = dy > 0$), and in the presence of $x$, the $y$ population decreases due to the $-cx$ term.
+
+$$\therefore \text{Therefore, this is a } \mathbf{two\text{-}species \ linear \ competition \ model.}$$
+\section{Describe the symbiotic population model and explain it.\textcolor{red}{(not CL)}}
+\textbf{Solution:}
+
+Let $x$ and $y$ be two populations. Then the model is:
+
+\begin{align*}
+    \left.
+    \begin{aligned}
+        \frac{dx}{dt} &= -ax + by \\[1ex]
+        \frac{dy}{dt} &= cx - dy
+    \end{aligned}
+    \right\} \sidenote{i}
+\end{align*}
+This is called the \textbf{linear symbiotic model}\\
+Here, $a, b, c, d > 0$.
+
+
+\textbf{Explanation:}
+
+From the 1st equation of (i), we observe that in the absence of $y$ ($y = 0$), $x$ decreases ($\frac{dx}{dt} = -ax < 0$), and in the presence of $y$, the $x$ population increases due to the $+by$ term.
+
+From the 2nd equation of (i), we observe that in the absence of $x$ ($x = 0$), $y$ decreases ($\frac{dy}{dt} = -dy < 0$), and in the presence of $x$, the growth rate of $y$ increases due to the $+cx$ term.
+
+$$\therefore \text{Therefore, this is a } \mathbf{two\text{-}species \ symbiotic \ model.}$$

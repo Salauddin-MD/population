@@ -1,0 +1,45 @@
+\section{Find the equilibrium population of logistic model and discuss the stability.}
+\textbf{Solution:}
+
+We have the logistic model:
+\begin{align*}
+    \frac{dN}{dt} &= (r - aN)N \\
+    &= r \left(1 - \frac{a}{r}N\right) N \\
+    &= rN \left(1 - \frac{N}{K}\right) \tag{i}
+\end{align*}
+
+For equilibrium population,
+\begin{align*}
+    \frac{dN}{dt} &= 0\\
+    rN \left(1 - \frac{N}{K}\right) &= 0\\
+\text{or, } rN &= 0 \quad \text{or} \quad 1 - \frac{N}{K} = 0\\
+\implies N &= 0 \quad \text{or} \quad N = K \quad (\because r \neq 0)
+\end{align*}
+which are the equilibrium populations.\\
+\textbf{Case i: For $N = 0$}
+
+Put $N = 0 + \varepsilon$, where $\varepsilon \ll 1$.Therefore, the model becomes:
+\begin{align*}
+    \frac{d(0 + \varepsilon)}{dt} &= r(0 + \varepsilon) \left(1 - \frac{0 + \varepsilon}{K}\right) \\
+    \implies \frac{d\varepsilon}{dt} &= r\varepsilon \left(1 - \frac{\varepsilon}{K}\right) \\
+    &= r\varepsilon \quad [\text{Neglecting } \varepsilon^2] \tag{ii}
+\end{align*}
+The solution of (ii) is:
+   $ \varepsilon= \varepsilon_0 e^{rt}$
+which is an unstable solution.
+$$\therefore N = 0 \text{ is unstable.}$$
+\textbf{Case ii: For $N = K$}
+
+Put $N = K + \varepsilon$, where $\varepsilon \ll 1$.
+
+Therefore, the model becomes:
+\begin{align*}
+    \frac{d(K + \varepsilon)}{dt} &= r(K + \varepsilon) \left(1 - \frac{K + \varepsilon}{K}\right) \\
+    \implies \frac{dK}{dt} + \frac{d\varepsilon}{dt} &= r(K + \varepsilon) \left(1 - 1 - \frac{\varepsilon}{K}\right) \\
+    \implies 0 + \frac{d\varepsilon}{dt} &= -\frac{r\varepsilon}{K} (K + \varepsilon) \\
+    \implies \frac{d\varepsilon}{dt} &= -r\varepsilon \quad [\text{Neglecting } \varepsilon^2] \tag{iii}
+\end{align*}
+
+The solution of (iii) is:$\varepsilon = \varepsilon_0 e^{-rt}$
+which decays to $0$ as $t \to \infty$.
+$\therefore N = K \text{ is stable.}$

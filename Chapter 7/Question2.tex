@@ -1,0 +1,105 @@
+\section{Discuss the deterministic susceptible infected(SI) model and solve. Show that the infection will spread throughout the population.}
+\section*{Solution:}
+
+The \textbf{SI model} is the simplest mathematical framework for describing the spread of an infectious disease in a closed population without recovery or immunity.
+
+\subsection*{Assumptions:}
+\begin{enumerate}
+    \item The total population size $N$ is fixed and constant over time:
+    \[
+    S(t) + I(t) = N
+    \]
+    where:
+    \begin{itemize}
+        \item $S(t)$ is the number of \textbf{susceptible} individuals at time $t$.
+        \item $I(t)$ is the number of \textbf{infected} individuals at time $t$.
+    \end{itemize}
+    \item The rate of new infections is proportional to the product of susceptible individuals $S(t)$ and infected individuals $I(t)$ (mass-action principle).
+    \item Once an individual becomes infected, they remain infected indefinitely (no recovery or removal).
+\end{enumerate}
+
+\subsection*{Governing Differential Equations:}
+\begin{align*}
+    \frac{dS}{dt} &= -\beta S I  \\[0.8em]
+    \frac{dI}{dt} &= \beta S I 
+\end{align*}
+
+\noindent where $\beta > 0$ is the transmission or infection rate parameter.
+\noindent The total population size is given by:
+\subsection*{Solving for $S(t)$}
+Let \begin{equation}
+    \text{total population} = S(t) + I(t) = n + 1 \sidenote{1}
+\end{equation}
+\noindent From Equation (2), we have:
+\[
+\frac{dS}{dt} = -\beta SI
+\]
+Substituting $I(t) = (n + 1) - S(t)$ from Equation (1):
+\[
+I(t) = (n + 1) - S(t)
+\]
+We get:
+\begin{align*}
+    \frac{dS}{dt} &= -\beta S \left( (n + 1) - S \right) \\
+    \implies \frac{dS}{-S \left( (n + 1) - S \right)} &= \beta \, dt \\
+    \implies -\frac{1}{n + 1} \left( \frac{1}{S} + \frac{1}{n + 1 - S} \right) dS &= \beta \, dt
+\end{align*}
+
+\noindent Integrating both sides:
+\[
+-\left\{ \ln S - \ln(n + 1 - S) \right\} = (n + 1)\beta t + \ln c
+\]
+\[
+\implies \ln \left( \frac{n + 1 - S}{S} \right) = (n + 1)\beta t + \ln c
+\]
+
+\noindent Applying initial conditions ($t = 0, S = n$):
+\[
+\ln \left( \frac{1}{n} \right) = \ln c \implies c = \frac{1}{n}
+\]
+
+\noindent Substituting $c$ back into the integral equation:
+\begin{align*}
+    \ln \left( \frac{n + 1 - S}{S} \right) &= (n + 1)\beta t + \ln \left( \frac{1}{n} \right) \\
+    \implies \ln \left( \frac{\frac{n + 1 - S}{S}}{\frac{1}{n}} \right) &= (n + 1)\beta t \\
+    \implies \ln \left\{ \frac{n(n + 1 - S)}{S} \right\} &= (n + 1)\beta t \\
+    \implies \frac{n(n + 1 - S)}{S} &= e^{(n + 1)\beta t} \\
+    \implies n^2 + n - Sn &= S e^{(n + 1)\beta t} \\
+    \implies S \left[ n + e^{(n + 1)\beta t} \right] &= n(n + 1) \\
+    \implies S(t) &= \frac{n(n + 1)}{n + e^{(n + 1)\beta t}} \sidenote{5}
+\end{align*}
+
+\subsection*{Solving for $I(t)$}
+
+\noindent Now, considering the differential equation for infected individuals:
+\begin{align*}
+    \frac{dI}{dt} &= \beta SI = \beta \left( (n + 1) - I \right) I \\
+    \implies \frac{dI}{I(n + 1 - I)} &= \beta \, dt \\
+    \implies \frac{1}{n + 1} \left( \frac{1}{I} + \frac{1}{n + 1 - I} \right) dI &= \beta \, dt \\
+    \implies \ln I - \ln(n + 1 - I) &= (n + 1)\beta t + \ln c \\
+    \implies \ln \left\{ \frac{I}{n + 1 - I} \right\} &= (n + 1)\beta t + \ln c
+\end{align*}
+
+\noindent At $t = 0, I = 1$:
+\[
+\ln \left\{ \frac{1}{n + 1 - 1} \right\} = \ln c \implies c = \frac{1}{n}
+\]
+
+\noindent Substituting $c$:
+\begin{align*}
+    \implies \frac{I}{n + 1 - I} &= \frac{1}{n} e^{(n + 1)\beta t} \\
+    \implies I(t) &= \frac{n + 1}{1 + n e^{-(n + 1)\beta t}} \sidenote{6}
+\end{align*}
+
+\subsection*{3. Limiting Behavior as $t \to \infty$}
+
+\noindent Taking limits as $t \to \infty$:
+\[
+\lim_{t \to \infty} S(t) = \lim_{t \to \infty} \frac{n(n + 1)}{n + e^{(n + 1)\beta t}} = 0
+\]
+\noindent From (6):
+\[
+\lim_{t \to \infty} I(t) = \lim_{t \to \infty} \frac{n + 1}{1 + n e^{-(n + 1)\beta t}} = n + 1
+\]
+
+\noindent So, the infection will spread throughout the entire population.

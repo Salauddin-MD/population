@@ -1,0 +1,79 @@
+\section{Examine the stability of the solution\\
+$\dot{x} = -x - y - x^3$\\
+$\dot{y} = x - y - y^3$
+by taking a suitable Liapunov-function.\textcolor{green}{2018}}
+\textbf{Solution:}
+
+Given system:
+\begin{equation}
+\begin{cases}
+    \dot{x} = -x - y - x^3 \\
+    \dot{y} = x - y - y^3
+\end{cases}
+\end{equation}
+
+Let $V(x, y) = A x^m + B y^n$ \quad (ii) be the Liapunov function candidate for the system (i), where $A$ and $B$ are positive constants, and $m, n$ are positive even integers.
+
+Taking the total time derivative along the trajectories of system (i):
+\begin{align*}
+    \dot{V}(x, y) &= A m x^{m-1} \dot{x} + B n y^{n-1} \dot{y} \\
+    &= A m x^{m-1}(-x - y - x^3) + B n y^{n-1}(x - y - y^3) \\
+    &= -A m x^m - A m x^{m-1} y - A m x^{m+2} + B n x y^{n-1} - B n y^n - B n y^{n+2} \\
+    &= \left(-A m x^{m-1} y + B n x y^{n-1}\right) - \left(A m x^m + A m x^{m+2} + B n y^n + B n y^{n+2}\right)
+\end{align*}
+
+To ensure negative definiteness of $\dot{V}(x, y)$, we set the cross-terms to zero:
+\begin{align*}
+    -A m x^{m-1} y + B n x y^{n-1} &= 0 \\
+    \implies A m x^{m-1} y &= B n x y^{n-1}
+\end{align*}
+
+Comparing coefficients and powers on both sides:
+\begin{align}
+    A m &= B n \quad \text{and} \quad x^{m-1} y = x y^{n-1}
+\end{align}
+
+Equating exponents:
+\begin{align*}
+    m - 1 = 1 &\implies m = 2 \\
+    n - 1 = 1 &\implies n = 2
+\end{align*}
+
+Substituting $m = 2$ and $n = 2$ into (iii):
+\begin{align*}
+    2A = 2B \implies A = B
+\end{align*}
+
+Choosing $A = 1$ and $B = 1$:
+\begin{align*}
+    \therefore V(x, y) = x^2 + y^2
+\end{align*}
+
+which is the required Liapunov function.
+
+---
+\begin{minipage}{0.5 \textwidth}
+    \textbf{2nd Part: Stability Analysis}
+
+Evaluating $\dot{V}(x, y)$ for $V(x, y) = x^2 + y^2$:
+\begin{align*}
+    \dot{V}(x, y) &= 2x \dot{x} + 2y \dot{y} \\
+    &= 2x(-x - y - x^3) + 2y(x - y - y^3) \\
+    &= -2x^2 - 2xy - 2x^4 + 2xy - 2y^2 - 2y^4 \\
+    \therefore \dot{V}(x, y) &= -\left(2x^2 + 2x^4 + 2y^2 + 2y^4\right)
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45 \textwidth}
+    \begin{enumerate}
+    \item $V(x, y)$ is continuously differentiable for all $(x, y) \in \mathbb{R}^2$.
+    \item $V(0,0) = 0$ and $V(x, y) > 0$ for all $(x, y) \neq (0,0)$. 
+    
+    $\therefore V(x, y)$ is **positive definite**.
+    
+    \item $\dot{V}(x, y) < 0$ for all $(x, y) \neq (0,0)$.
+    
+    $\therefore \dot{V}(x, y)$ is **negative definite**.
+\end{enumerate}
+\end{minipage}
+Hence, by Liapunov's First Theorem, the critical point $(0, 0)$ is **asymptotically stable**.

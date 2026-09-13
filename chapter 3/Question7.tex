@@ -1,0 +1,75 @@
+\section{Obtain a Lyapunov function for the dynamical system}
+\begin{align*}
+    \dot{x} &= 4y - x^3 \sidenote{(1a)} \\
+    \dot{y} &= 3x - 4y \sidenote{(1b)}
+\end{align*}
+and examine the stability of the origin $(0,0)$.
+\noindent \textbf{Solution:}
+
+Given that:
+\begin{align*}
+    \dot{x} &= 4y - x^3 \sidenote{(i)} \\
+    \dot{y} &= 3x - 4y
+\end{align*}
+
+Let
+\begin{align*}
+    V(x,y) = A x^m + B y^n \sidenote{(ii)}
+\end{align*}
+be the Lyapunov function of the system (i), where $A, B$ are positive constants and $m, n$ are positive and even.
+
+Now differentiating (ii) with respect to $t$, we get:
+\begin{align*}
+    \dot{V}(x,y) &= A m x^{m-1} \dot{x} + B n y^{n-1} \dot{y} \\
+    &= A m x^{m-1} (4y - x^3) + B n y^{n-1} (3x - 4y) \\
+    &= 4 A m x^{m-1} y - A m x^{m+2} + 3 B n y^{n-1} x - 4 B n y^n \\
+    &= 4 A m x^{m-1} y + 3 B n x y^{n-1} - \left(A m x^{m+2} + 4 B n y^n\right)
+\end{align*}
+
+Since $V(x,y)$ is a Lyapunov function, we put:
+\begin{align*}
+    &4 A m x^{m-1} y + 3 B n x y^{n-1} = 0 \\
+    \Rightarrow\ &4 A m x^{m-1} y = -3 B n x y^{n-1} \\
+    \Rightarrow\ &\left. \begin{aligned}
+        4 A m &= -3 B n \\
+        x^{m-1} y &= x y^{n-1}
+    \end{aligned} \right\} \sidenote{(iii) (say)}
+\end{align*}
+
+From the second relation of (iii):
+\begin{align*}
+    m - 1 &= 1 \implies m = 2 \\
+    n - 1 &= 1 \implies n = 2
+\end{align*}
+
+From (iii), we get:
+\begin{align*}
+    4 A (2) &= -3 B (2) \\
+    \Rightarrow 4 A &= -3 B \\
+    \Rightarrow \frac{A}{B} &= -\frac{3}{4} \\
+    \therefore A &= -3, \quad B = 4
+\end{align*}
+
+Thus, the candidate function becomes:
+\begin{align*}
+    \therefore V(x,y) &= -3 x^2 + 4 y^2
+\end{align*}
+
+Differentiating $V(x,y)$ along the system trajectories:
+\begin{align*}
+    \therefore \dot{V}(x,y) &= -6 x \dot{x} + 8 y \dot{y} \\
+    &= -6 x (4y - x^3) + 8 y (3x - 4y) \\
+    &= -24 x y + 6 x^4 + 24 x y - 32 y^2 \\
+    &= 6 x^4 - 32 y^2
+\end{align*}
+
+We observe that:
+\begin{enumerate}
+    \item $V(x,y)$ is a differentiable function of $x$ and $y$.
+    \item $V(x,y)$ is positive definite for region where $4y^2 > 3x^2$, and $V(x,y) = 0$ if $x=0, y=0$.
+    \item $\dot{V}(x,y) > 0$ in the region near the origin.
+\end{enumerate}
+
+\noindent $\therefore V(x,y)$ is a Lyapunov function for the system (i).
+
+\noindent $\therefore$ The critical point $(0,0)$ is \textbf{unstable}.

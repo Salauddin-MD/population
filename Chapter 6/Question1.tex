@@ -1,0 +1,21 @@
+\section{Describe the two species linear predator prey model and explain it.}
+\textbf{Solution:} Let $x$ denote the predator population and $y$ denote the prey population.
+
+\noindent Then the model:
+\begin{align*}
+    \frac{dx}{dt} &= -ax + by \sidenote{1} \\
+    \frac{dy}{dt} &= dy - cx \;; \quad a, b, c, d > 0 \sidenote{2}
+\end{align*}
+is called the two-species linear predator-prey model.
+
+\vspace{1em}
+\noindent\textbf{2nd part / (Explanation):}
+
+\noindent From equation (1), we observe that in the absence of prey ($y = 0$), $\frac{dx}{dt} = -ax$, meaning the predator population $x$ decays exponentially. When prey is present ($by > 0$), it contributes positively to predator growth.
+
+\vspace{0.5em}
+\noindent From equation (2), we observe that in the absence of predators ($x = 0$), $\frac{dy}{dt} = dy$, meaning the prey population $y$ grows exponentially (Malthusian growth). When predators are present ($-cx < 0$), predation reduces prey population growth.
+
+\begin{align*}
+    \therefore \text{The model is a two-species linear predator-prey model.}
+\end{align*}

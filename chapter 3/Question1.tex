@@ -1,0 +1,112 @@
+\section{The given system ,Test whether the system stable or unstable}
+\begin{align*}
+    \dot{x}&=ax+by\\
+    \dot{y} &=cx+dy
+\end{align*}
+\section*{Solution}
+Consider the two-dimensional linear homogeneous autonomous system:
+\begin{equation}
+    \begin{aligned}
+        \dot{x} &= ax + by \\
+        \dot{y} &= cx + dy
+    \end{aligned} \sidenote{1}
+\end{equation}
+Assume a trial solution of the form:
+\[
+x(t) = A e^{\lambda t}, \quad y(t) = B e^{\lambda t}
+\]
+where $A$ and $B$ are non-zero constants.
+
+\noindent Differentiating and substituting into system (1):
+\begin{align*}
+    A \lambda e^{\lambda t} &= a A e^{\lambda t} + b B e^{\lambda t} \\
+    B \lambda e^{\lambda t} &= c A e^{\lambda t} + d B e^{\lambda t}
+\end{align*}
+
+\noindent Since $e^{\lambda t} \neq 0$ for all $t$:
+\begin{align*}
+    A \lambda &= a A + b B \\
+    B \lambda &= c A + d B
+\end{align*}
+
+\noindent Rearranging into a homogeneous linear system:
+\begin{align*}
+    (\lambda - a)A - b B &= 0 \\
+    -cA + (\lambda - d)B &= 0
+\end{align*}
+
+\noindent For non-trivial solutions $(A, B) \neq (0, 0)$, the determinant of the coefficient matrix must vanish:
+\[
+\begin{vmatrix}
+\lambda - a & -b \\
+-c & \lambda - d
+\end{vmatrix} = 0
+\]
+
+\noindent Expanding the determinant:
+\[
+(\lambda - a)(\lambda - d) - bc = 0
+\]
+\[
+\lambda^2 - (a + d)\lambda + (ad - bc) = 0
+\]
+
+\noindent Solving using the quadratic formula:
+\[
+\lambda_{1,2} = \frac{(a + d) \pm \sqrt{(a + d)^2 - 4(ad - bc)}}{2}
+\]
+\[
+\lambda_{1,2} = \frac{(a + d) \pm \sqrt{(a - d)^2 + 4bc}}{2}
+\]
+
+\subsection*{Classification of Critical Points (Origin)}
+
+\begin{enumerate}
+    \item \textbf{Stable Node:} If $\lambda_1$ and $\lambda_2$ are real, distinct, and both negative ($\lambda_1 < \lambda_2 < 0$), the system at the origin is a \textbf{stable node}.
+    
+    \item \textbf{Unstable Node:} If $\lambda_1$ and $\lambda_2$ are real, distinct, and both positive ($\lambda_1 > \lambda_2 > 0$), the system at the origin is an \textbf{unstable node}.
+    
+    \item \textbf{Stable Center:} If $\lambda_1$ and $\lambda_2$ are purely imaginary ($\lambda_{1,2} = \pm i\beta$), the system at the origin is a \textbf{stable center} (neutrally stable).
+    
+    \item \textbf{Unstable Spiral:} If $\lambda_1$ and $\lambda_2$ are complex conjugates with positive real part ($\lambda_{1,2} = \alpha \pm i\beta, \; \alpha > 0$), the system at the origin is an \textbf{unstable spiral (focus)}.
+    
+    \item \textbf{Stable Spiral:} If $\lambda_1$ and $\lambda_2$ are complex conjugates with negative real part ($\lambda_{1,2} = \alpha \pm i\beta, \; \alpha < 0$), the system at the origin is a \textbf{stable spiral (focus)}.
+    
+    \item \textbf{Unstable Saddle Point:} If one eigenvalue is positive(real) and the other is negative ($\lambda_1 < 0 < \lambda_2$), the system at the origin is an \textbf{unstable saddle point}.
+\end{enumerate}
+\section{Discuss the stability and nature of the critical point.}
+\begin{align*}
+        \dot{x} &= x + 3y \\
+        \dot{y} &= 3x + y
+    \end{align*}
+Consider the linear autonomous dynamical system:
+\begin{equation}
+    \begin{aligned}
+        \dot{x} &= x + 3y \\
+        \dot{y} &= 3x + y
+    \end{aligned} \sidenote{1}
+\end{equation}
+
+Here, the system matrix coefficients are:
+\[
+a = 1, \quad b = 3, \quad c = 3, \quad d = 1
+\]
+The characteristic equation of system (1) is given by:
+\[
+\lambda^2 - (a + d)\lambda + (ad - bc) = 0
+\]
+
+\noindent Substituting the values of $a, b, c,$ and $d$:
+\begin{align*}
+    \lambda^2 - \lambda(1 + 1) + (1 \cdot 1 - 3 \cdot 3) &= 0 \\[0.5em]
+    \lambda^2 - 2\lambda - 8 &= 0 \\[0.5em]
+    \lambda^2 - 4\lambda + 2\lambda - 8 &= 0 \\[0.5em]
+    \lambda(\lambda - 4) + 2(\lambda - 4) &= 0 \\[0.5em]
+    (\lambda - 4)(\lambda + 2) &= 0
+\end{align*}
+
+\noindent Thus, the eigenvalues are:
+\[
+\lambda_1 = 4, \quad \lambda_2 = -2
+\]
+Since one eigenvalue is real and positive ($\lambda_1 = 4 > 0$) and the other eigenvalue is real and negative ($\lambda_2 = -2 < 0$), the critical point at the origin $(0, 0)$ is an \textbf{unstable saddle point}.

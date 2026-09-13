@@ -1,0 +1,80 @@
+\section{Describe the simple SIR epidemic model. Find the condition on which the infection will ultimately die out or spread throughout the population.}
+\subsection*{Description of the Simple SIR Epidemic Model}
+
+The \textbf{SIR model} (Kermack and McKendrick, 1927) divides a fixed total population $N$ into three compartmental classes:
+
+\begin{itemize}
+    \item $S(t)$: \textbf{Susceptible} individuals who are healthy but vulnerable to catching the disease.
+    \item $I(t)$: \textbf{Infected} individuals who currently have the disease and can transmit it to susceptibles.
+    \item $R(t)$: \textbf{Removed} (or Recovered) individuals who have either recovered with permanent immunity or died.
+\end{itemize}
+\noindent\textbf{Model Assumptions:}
+\begin{enumerate}
+    \item The total population $N$ remains constant over the epidemic time scale (i.e., no births, natural deaths, or migration):
+    \[
+        S(t) + I(t) + R(t) = N = \text{constant}
+    \]
+    \item Infection rate is proportional to the rate of contact between susceptible and infected individuals ($\beta S I$).
+    \item Recovery rate is directly proportional to the number of infected individuals ($\gamma I$).
+\end{enumerate}
+\noindent\textbf{Differential Equations:}
+\begin{align}
+    \frac{dS}{dt} &= -\beta S I \tag{1} \\
+    \frac{dI}{dt} &= \beta S I - \gamma I \tag{2} \\
+    \frac{dR}{dt} &= \gamma I \tag{3}
+\end{align}
+\noindent where:
+\begin{itemize}
+    \item $\beta > 0$ is the \textbf{transmission (infection) rate coefficient}.
+    \item $\gamma > 0$ is the \textbf{recovery/removal rate coefficient}.
+\end{itemize}
+The initial conditions of the above model are:
+\[
+S(0) = S_0 > 0, \quad I(0) = I_0 > 0, \quad \text{and} \quad R(0) = 0
+\]
+\noindent Initially, from equation (2):
+\begin{align*}
+    \frac{dI}{dt} &= \beta S I - \alpha I \\
+    \implies \frac{dI}{dt} &= I \beta \left(S - \frac{\alpha}{\beta}\right)
+\end{align*}
+\noindent Evaluating at $t = 0$:
+\begin{align*}
+    \left. \frac{dI}{dt} \right|_{t=0} &= I_0 \beta \left(S_0 - \frac{\alpha}{\beta}\right) \tag{iv}
+\end{align*}
+\noindent From $\frac{dS}{dt} = -\beta S I$, since $\beta, S, I$ are positive, we have $\frac{dS}{dt} < 0$, which implies $S(t)$ is a strictly decreasing function. Therefore:
+\[
+S(t) < S(0) = S_0 \quad \text{for all } t > 0
+\]
+\subsection*{Case 1: No Epidemic Outbreak $\left(S_0 \le \frac{\alpha}{\beta}\right)$}
+\noindent From equation (iv):
+\begin{align*}
+    \frac{dI}{dt} = I \beta \left(S - \frac{\alpha}{\beta}\right) &< I \beta \left(S_0 - \frac{\alpha}{\beta}\right) \quad \text{since } S(t) < S_0
+\end{align*}
+\noindent Now, if $S_0 \le \frac{\alpha}{\beta}$:
+\begin{align*}
+    \frac{dI}{dt} &< \beta I \left(\frac{\alpha}{\beta} - \frac{\alpha}{\beta}\right) = 0 \\
+    \implies \frac{dI}{dt} &< 0 \quad \text{for all } t \ge 0
+\end{align*}
+
+\noindent Thus, $I(t)$ is a strictly decreasing function. Integrating gives:
+\begin{align*}
+    [I]_0^t &< 0 \implies I(t) < I_0 \\
+    \implies \lim_{t \to \infty} I(t) &< I_0
+\end{align*}
+Hence, no epidemic occurs, and the infection dies out.
+
+\vspace{1em}
+\subsection*{Case 2: Epidemic Outbreak $\left(S_0 > \frac{\alpha}{\beta}\right)$}
+
+\noindent Let $S_0 > \frac{\alpha}{\beta}$. From equation (iv):
+\begin{align*}
+    \left. \frac{dI}{dt} \right|_{t=0} &= I_0 \beta \left(S_0 - \frac{\alpha}{\beta}\right) > 0 \\
+    \implies \left. \frac{dI}{dt} \right|_{t=0} &> 0
+\end{align*}
+
+\noindent Since the derivative is positive at $t = 0$, $I(t)$ is initially an increasing function. Thus, for early times $t > 0$:
+\[
+I(t) > I(0) = I_0
+\]
+
+\noindent The number of infected individuals increases initially. Hence, an **epidemic occurs** and the infection spreads through the population.

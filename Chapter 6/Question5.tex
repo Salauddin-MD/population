@@ -1,0 +1,107 @@
+\section{ Identify and solve the two-species linear population model:}
+\begin{align*}
+    \frac{dx}{dt} &= -2x + 4y \sidenote{$x(0) = 100$} \\
+    \frac{dy}{dt} &= x - 2y   \sidenote{$y(0) = 300$}
+\end{align*}
+\section*{Also find the time when the population will become extinct.\textcolor{green}{2020}}
+\noindent \textbf{Solution:}
+
+\noindent \textbf{1st Part: Model Identification}
+
+Given system of differential equations:
+\begin{align*}
+    \frac{dx}{dt} &= -2x + 4y \tag{i} \\
+    \frac{dy}{dt} &= x - 2y   \tag{ii}
+\end{align*}
+
+From equation (i), in the absence of $y$, the growth rate of $x$ decreases, while in the presence of $y$, the growth rate of $x$ increases. Similarly, from equation (ii), in the absence of $x$, the growth rate of $y$ decreases, while in the presence of $x$, the growth rate of $y$ increases.
+
+Therefore, the system represents a \textbf{symbiotic model}.
+
+\bigskip
+\noindent \textbf{2nd Part: General Solution}
+
+Using the differential operator $D = \frac{d}{dt}$:
+\begin{align*}
+    (D + 2)x - 4y &= 0 \tag{iii}\\
+    -x + (D + 2)y &= 0 \tag{iv}
+\end{align*}
+
+Operating $(D + 2)$ on (iii) and multiplying (iv) by $4$:
+\begin{align*}
+    (D + 2)^2 x - 4(D + 2)y &= 0 \\
+    -4x + 4(D + 2)y &= 0
+\end{align*}
+
+Adding both equations eliminates $y$:
+\begin{align*}
+    \left[(D + 2)^2 - 4\right]x &= 0 \sidenote{eliminating $y$} \\
+    (D^2 + 4D)x &= 0 \\
+    \implies \frac{d^2x}{dt^2} + 4\frac{dx}{dt} &= 0 \tag{v}
+\end{align*}
+
+Let $x = e^{mt}$ be a trial solution of (v). The auxiliary equation is:
+\begin{align*}
+    m^2 + 4m &= 0 \\
+    m(m + 4) &= 0 \implies m = 0, -4
+\end{align*}
+
+Hence, the general solution for $x(t)$ is:
+\begin{align*}
+    x(t) = c_1 + c_2 e^{-4t} \tag{vi}
+\end{align*}
+
+Substituting equation (vi) into equation (i) to solve for $y(t)$:
+\begin{align*}
+    4y &= \frac{dx}{dt} + 2x \sidenote{from (i)} \\
+    4y &= -4c_2 e^{-4t} + 2(c_1 + c_2 e^{-4t}) \\
+    4y &= 2c_1 - 2c_2 e^{-4t} \\
+    \implies y(t) &= \frac{1}{2}c_1 - \frac{1}{2}c_2 e^{-4t} \tag{vii}
+\end{align*}
+
+Equations (vi) and (vii) are the general solution.\\
+\noindent \textbf{3rd Part: Particular Solution}
+
+Applying initial conditions $x(0) = 100$ and $y(0) = 300$:
+\begin{align*}
+    100 &= c_1 + c_2 \tag{viii} \\
+    300 &= \frac{1}{2}c_1 - \frac{1}{2}c_2 \tag{ix}
+\end{align*}
+
+From equation (viii), $c_1 = 100 - c_2$. Substituting into (ix):
+\begin{align*}
+    300 &= \frac{1}{2}(100 - c_2) - \frac{1}{2}c_2 \\
+    300 &= 50 - c_2 \implies c_2 = -250 \\
+    \implies c_1 &= 100 - (-250) = 350
+\end{align*}
+
+Substituting $c_1$ and $c_2$ gives the particular solution:
+\begin{align*}
+    x(t) &= 350 - 250 e^{-4t} \tag{x} \\
+    y(t) &= 175 + 125 e^{-4t} \tag{xi}
+\end{align*}
+
+\bigskip
+\noindent \textbf{4th Part: Extinction Time Analysis}
+
+Let $t = T$ be the extinction time where population reaches $0$.
+
+\noindent \textbf{For species $x$:}
+\begin{align*}
+    0 &= 350 - 250 e^{-4T} \tag{xii}\\
+    250 e^{-4T} &= 350 \\
+    e^{-4T} &= \frac{35}{25} = \frac{7}{5} \\
+    \ln(e^{-4T}) &= \ln\left(\frac{7}{5}\right) \\
+    -4T &= \ln\left(\frac{7}{5}\right) \implies T = -\frac{1}{4}\ln\left(\frac{7}{5}\right)
+\end{align*}
+Since time cannot be negative ($T < 0$), the $x$ population will \textbf{never go extinct}.
+
+\smallskip
+\noindent \textbf{For species $y$:}
+\begin{align*}
+    0 &= 175 + 125 e^{-4T} \tag{xiii} \\
+    e^{-4T} &= -\frac{175}{125} = -\frac{7}{5} \\
+    -4T &= \ln\left(-\frac{7}{5}\right) \implies T = -\frac{1}{4}\ln\left(-\frac{7}{5}\right)
+\end{align*}
+Since $\ln(-7/5)$ is undefined in the real numbers ($\mathbb{R}$), the $y$ population will \textbf{never go extinct}.\\
+\textit{Check page 146, 2 math}

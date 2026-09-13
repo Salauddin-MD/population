@@ -1,0 +1,58 @@
+\subsection*{Negative Semi-Definite:}
+A function $V(x, y)$ is said to be negative semi-definite in a domain $D$ if $V(0,0) = 0$ and $V(x, y) \le 0$ for allFor any $(x, y) \neq (0, 0)$
+\begin{itemize}
+    \item \textbf{Example:} Consider $V(x, y) = x^2 - y^2$, domain $D = \{(x, y) : x \le y\}$.
+\end{itemize}
+\subsection*{Liapunov Function:}
+
+Suppose that the autonomous system:
+\begin{align*}
+    \dot{x} &= P(x, y) \nonumber \\
+    \dot{y} &= Q(x, y)
+\end{align*}
+
+has an isolated critical point $(0,0)$ and $P(x, y)$ and $Q(x, y)$ have continuous first order partial derivatives for all $(x, y)$.
+
+If there exists a function $V(x, y)$ related to the system (1) such that:
+\begin{itemize}
+    \item $V(x, y)$ is a differentiable function for all $x, y$.
+    \item $V(x, y)$ is positive definite in a domain $D$.
+    \item $\dot{V}(x, y) \le 0$ for all $x, y \in D$.
+\end{itemize}
+
+then $V(x, y)$ is called the **Liapunov Function** of the system (1).
+
+\section{ State the three theorems of Liapunov.\textcolor{green}{17}}
+\textbf{Theorem 01:}
+\textbf{Statement:}
+Consider the autonomous system:
+\begin{align}
+    \dot{x} &= P(x, y) \nonumber \\
+    \dot{y} &= Q(x, y)
+\end{align}
+
+If there exists a differentiable function $V(x, y)$ such that $V(x, y)$ is positive definite and $\dot{V}(x, y)$ is negative definite, then the critical point $(0,0)$ of the system (1) is **asymptotically stable**.
+
+---
+
+\textbf{Theorem 02:}
+\textbf{Statement:}
+Consider the autonomous system:
+\begin{align}
+    \dot{x} &= P(x, y) \nonumber \\
+    \dot{y} &= Q(x, y)
+\end{align}
+
+If there exists a differentiable function $V(x, y)$ such that $V(x, y)$ is positive definite and $\dot{V}(x, y)$ is negative semi-definite, then the critical point $(0,0)$ of the system (1) is **stable**.
+
+---
+
+\textbf{Theorem 03:}
+\textbf{Statement:}
+Consider the autonomous system:
+\begin{align}
+    \dot{x} &= P(x, y) \nonumber \\
+    \dot{y} &= Q(x, y)
+\end{align}
+
+If there exists a differentiable function $V(x, y)$ such that $V(x, y)$ is positive definite and $\dot{V}(x, y) > 0$ for all $x \neq 0, y \neq 0$, then the critical point $(0,0)$ is **unstable**.

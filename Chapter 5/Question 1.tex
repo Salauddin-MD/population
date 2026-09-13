@@ -1,0 +1,106 @@
+\section{Describe the Harvesting Population Model and find its solutions. Discuss the stability of the Harvesting Model.}
+\section*{Solution of Harvesting / Migration Model}
+
+We have the standard logistic model:
+\begin{equation}
+\frac{dN}{dt} = rN \left(1 - \frac{N}{K}\right) \tag{i}
+\end{equation}
+
+The mortality rate may be affected by the migration of population from one place to another. The migration is due to better jobs, better weather, better housing, or oppression by the government, etc.
+
+The migration rate is also proportional to the number of population. The logistic model becomes:
+\begin{equation}
+\frac{dN}{dt} = rN \left(1 - \frac{N}{K}\right) \pm EN \tag{ii}
+\end{equation}
+where $E$ is the proportionality constant in the harvesting/migration model, and $r, K, E$ are positive constants. $r$ is called the per capita growth rate, and $K$ is the carrying capacity of the environment.
+
+\subsection*{Solution of the Differential Equation}
+
+From ii we have:
+\begin{align*}
+\frac{dN}{dt} &= rN \pm EN - \frac{rN^2}{K} \\
+&= N(r \pm E) - \frac{r}{K}N^2 \\
+\frac{dN}{dt} &= aN - bN^2 \tag{A}
+\end{align*}
+where $a = r \pm E$ and $b = \dfrac{r}{K}$.
+
+Separating variables:
+\begin{align*}
+\frac{dN}{N(a - bN)} &= dt\\
+\Rightarrow \left( \frac{1}{N} + \frac{b}{a - bN} \right) dN &= a \, dt
+\end{align*}
+
+Integrating both sides:
+\begin{align*}
+\ln N - \ln(a - bN) &= at + \ln c \\
+\ln \left( \frac{N}{a - bN} \right) &= \ln \left( c e^{at} \right) \\
+\frac{N}{a - bN} &= c e^{at} \\
+N &= (a - bN) c e^{at} \tag{iii}
+\end{align*}
+
+Applying the initial condition $N(0) = N_0$ at $t = 0$:
+\begin{equation*}
+N_0 = (a - bN_0)c \implies c = \frac{N_0}{a - bN_0}
+\end{equation*}
+
+Substituting $c$ back into iii:
+\begin{align*}
+N &= \left( \frac{a - bN}{a - bN_0} \right) N_0 e^{at} \\
+N + b \frac{N N_0 e^{at}}{a - bN_0} &= \frac{a N_0 e^{at}}{a - bN_0} \\
+N \left( 1 + \frac{b N_0 e^{at}}{a - bN_0} \right) &= \frac{a N_0 e^{at}}{a - bN_0} \\
+N \left( \frac{a - bN_0 + b N_0 e^{at}}{a - bN_0} \right) &= \frac{a N_0 e^{at}}{a - bN_0} \\
+N &= \frac{a N_0 e^{at}}{(a - bN_0) + b N_0 e^{at}}
+\end{align*}
+
+Dividing numerator and denominator by $e^{at}$:
+\begin{equation*}
+N(t) = \frac{a N_0}{b N_0 + (a - bN_0)e^{-at}}
+\end{equation*}
+
+Substituting back $a = r \pm E$ and $b = \dfrac{r}{K}$:
+\begin{equation*}
+N(t) = \frac{(r \pm E) N_0}{\frac{r}{K} N_0 + \left( (r \pm E) - \frac{r}{K} N_0 \right) e^{-(r \pm E)t}}
+\end{equation*}
+which gives the required population solution.
+
+\subsection*{Stability Analysis}
+
+For equilibrium states, set $\dfrac{dN}{dt} = 0$.
+
+From equation A:
+\begin{align*}
+aN - bN^2 &= 0 \\
+N(a - bN) &= 0 \\
+\implies N = 0 \quad &\text{or} \quad N = \frac{a}{b}
+\end{align*}
+
+\paragraph{Case 1: Stability near $N = 0$}
+Let $N = 0 + \varepsilon$, where $\varepsilon$ is a small perturbation.
+\begin{align*}
+\frac{d\varepsilon}{dt} &= r\varepsilon \left(1 - \frac{\varepsilon}{K}\right) \pm E\varepsilon \\
+&\approx r\varepsilon \pm E\varepsilon \quad (\text{neglecting } \varepsilon^2) \\
+\frac{d\varepsilon}{dt} &= (r \pm E)\varepsilon = a\varepsilon
+\end{align*}
+
+This is a Malthusian model with solution:
+\begin{equation*}
+\varepsilon(t) = \varepsilon_0 e^{at}
+\end{equation*}
+For $a > 0$, $\varepsilon(t)$ grows exponentially, so $N = 0$ is an **unstable** equilibrium solution.
+
+\paragraph{Case 2: Solution at Equilibrium $N = \frac{a}{b}$}
+Here $N = \frac{a}{b} = \frac{K}{r}(r \pm E)$.
+
+\begin{enumerate}
+    \item **When $E = 0$ (No harvesting/migration):**
+    \begin{equation*}
+    N(t) = \frac{r N_0}{\frac{r}{K} N_0 + \left( r - \frac{r}{K} N_0 \right) e^{-rt}}
+    \end{equation*}
+    which is the standard solution of the logistic population model. The equilibrium population $N = K$ is **stable**.
+
+    \item **If $E > r$ (Over-harvesting):**
+    The growth rate becomes negative ($a < 0$). The population will continuously decrease and eventually vanish ($N \to 0$).
+
+    \item **If $E < r$ (Sustainable harvesting):**
+    $a > 0$, so the population stays positive, increases toward the modified carrying capacity, and exists sustainably.
+\end{enumerate}

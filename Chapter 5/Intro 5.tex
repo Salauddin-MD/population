@@ -1,0 +1,18 @@
+\chapter{Discrete population Model}
+\section*{Something Important}
+\begin{itemize}
+    \item Malthusian Population Model:
+    $$\frac{dN}{dt} = k N$$
+    $N(t)$ = population size at time $t$, $k$ = constant growth rate parameter ($k = b - d$, where $b$ is the per-capita birth rate and $d$ is the per-capita death rate)\\
+    solution: $N(t) = N_0 e^{kt}$
+    \item Logistic (Verhulst) Population Model
+    $$\frac{dN}{dt} = r N \left(1 - \frac{N}{K}\right)$$Its explicit solution is:$$N(t) = \frac{K N_0}{N_0 + (K - N_0) e^{-rt}}$$
+    $r$ is the intrinsic growth rate and $k$ is carrying capacity
+    \item Harvesting model:
+    $$\frac{dN}{dt} = rN \left(1 - \frac{N}{K}\right) \pm EN $$
+    Solution:
+    $$N(t) = \frac{(r \pm E) N_0}{\frac{r}{K} N_0 + \left( (r \pm E) - \frac{r}{K} N_0 \right) e^{-(r \pm E)t}}$$
+
+    
+
+\end{itemize}

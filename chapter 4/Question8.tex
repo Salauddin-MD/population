@@ -1,0 +1,26 @@
+\section{If the carrying capacity of the logistic model is $K$ and $0 < N_0 < \frac{K}{2}$, then determine the time of doubling of population.\textcolor{green}{2018}}
+\textbf{Solution:}
+
+We have the solution of the logistic model:
+\begin{align*}
+    N &= \frac{K N_0}{N_0 + (K - N_0) e^{-rt}} \sidenote{i}
+\end{align*}
+
+Suppose when $t = T$, the population $N_0$ will double, i.e., $N = 2N_0$.
+
+Putting this in (i), we get:
+\begin{align*}
+    2N_0 &= \frac{K N_0}{N_0 + (K - N_0) e^{-rT}} \\
+    2 \left[ N_0 + (K - N_0) e^{-rT} \right] &= K \\
+    (K - N_0) e^{-rT} &= \frac{K}{2} - N_0 \\
+    (K - N_0) e^{-rT} &= \frac{K - 2N_0}{2} \\
+    e^{-rT} &= \frac{K - 2N_0}{2(K - N_0)} \\
+    e^{rT} &= \frac{2(K - N_0)}{K - 2N_0} \\
+    rT &= \ln \left[ \frac{2(K - N_0)}{K - 2N_0} \right] \\
+    T &= \frac{1}{r} \ln \left[ \frac{2(K - N_0)}{2\left(\frac{K}{2} - N_0\right)} \right] \\
+    T &= \frac{1}{r} \ln \left[ \frac{K - N_0}{\frac{K}{2} - N_0} \right]
+\end{align*}
+
+Since $0 < N_0 < \frac{K}{2}$, the fraction $\frac{K - N_0}{\frac{K}{2} - N_0}$ is positive (and greater than $1$).
+
+$$\therefore \text{The doubling time is } T = \frac{1}{r} \ln \left[ \frac{K - N_0}{\frac{K}{2} - N_0} \right]$$

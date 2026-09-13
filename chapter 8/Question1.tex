@@ -1,0 +1,119 @@
+\chapter{HIV}
+\section{Describe the deterministic AIDS model. Show that the infection spread throughout the population. Find the doubling time. Also find the number of AIDS patients at any time $t$.}
+\noindent\textbf{Solution.}\ Let $N(t)$ denote the size of the total population. Let $S(t)$, $I(t)$, $A(t)$ and $H(t)$ denote, respectively, the number of susceptibles, infected population, AIDS patients, and the number of HIV-positive population who are non-infectious.
+
+Now we consider the following flow chart:
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.6cm and 2.2cm, >=stealth, thick]
+    \node (B) {};
+    \node[below=0.6cm of B] (S) {Susceptible $S(t)$};
+    \node[below=1.4cm of S] (I) {Infectious $I(t)$};
+    \node[below left=1.6cm and 1.4cm of I] (A) {AIDS $A(t)$};
+    \node[below right=1.6cm and 0.6cm of I] (H) {Seropositive non-infectious $H(t)$};
+    \node[right=1.8cm of S] (Sd) {Natural death};
+    \node[right=1.8cm of I] (Id) {Natural death};
+    \node[left=1.8cm of A] (Ad) {Natural death};
+    \node[below=1cm of A] (Dd) {Disease induced death};
+    \node[right=2.2cm of H] (Hd) {Natural death};
+
+    \draw[->] (B) -- node[right]{$B$} (S);
+    \draw[->] (S) -- node[right]{$\lambda c$} (I);
+    \draw[->] (S) -- node[above]{$\mu$} (Sd);
+    \draw[->] (I) -- node[above]{$\mu$} (Id);
+    \draw[->] (I) -- node[above left]{$p\nu$} (A);
+    \draw[->] (I) -- node[above right]{$(1-p)\nu$} (H);
+    \draw[->] (A) -- node[above]{$\mu$} (Ad);
+    \draw[->] (A) -- node[right]{$d$} (Dd);
+    \draw[->] (H) -- node[above]{$\mu$} (Hd);
+\end{tikzpicture}
+\end{center}
+
+Here $B$ is the recruitment of susceptibles, $\mu$ is the natural (non-AIDS) death rate, $\lambda c$ is the rate of transferral from susceptible to the infectious class, $\lambda$ is the probability of acquiring infection from a randomly chosen partner
+\begin{align*}
+    \left(\lambda = \frac{\beta I}{N}\right),
+\end{align*}
+where $\beta$ is the transmission probability, $c$ is the number of partners, $d$ is the AIDS-related death rate, $p$ is the proportion of HIV-positive who are infectious, and $\nu$ is the rate of conversion from infection to AIDS, here taken to be constant. $\dfrac{1}{\nu}$, say $=D$, is the average incubation time of the disease.
+
+Therefore, a reasonable model based on the flow chart is
+\begin{align*}
+    \frac{dS}{dt} &= B - \mu S - \lambda c S, \qquad \lambda = \frac{\beta I}{N} \sidenote{1} \\
+    \frac{dI}{dt} &= \lambda c S - (\nu+\mu)I \sidenote{2} \\
+    \frac{dA}{dt} &= p\nu I - (d+\mu)A \sidenote{3} \\
+    \frac{dH}{dt} &= (1-p)\nu I - \mu H \sidenote{4} \\
+    N(t) &= S(t) + I(t) + H(t) + A(t) \sidenote{5}
+\end{align*}
+
+Now, differentiating (5) w.r.t.\ $t$, we get
+\begin{align*}
+    \frac{dN}{dt} &= \frac{dS}{dt} + \frac{dI}{dt} + \frac{dH}{dt} + \frac{dA}{dt} \\
+    &= \big[B - \mu S - \lambda c S\big] + \big[\lambda c S - (\nu+\mu)I\big] + \big[(1-p)\nu I - \mu H\big] + \big[p\nu I - (d+\mu)A\big] \\
+    &= B - \mu S - \mu I - \mu H - (d+\mu)A \\
+    &= B - \mu(S+I+H+A) - dA \\
+    \Rightarrow\ \frac{dN}{dt} &= B - \mu N - dA. \sidenote{6}
+\end{align*}
+
+Now, if at $t=0$ an infected individual is introduced into an otherwise infection-free population of susceptibles, then we have, near $t=0$, $N \approx S$. Therefore, from (2), we get
+\begin{align*}
+    \frac{dI}{dt} &\approx \lambda c N - (\nu+\mu)I, \qquad \text{since } N \approx S \\
+    \frac{dI}{dt} &\approx c\left(\frac{\beta I}{N}\right)N - (\nu+\mu)I \\
+    \Rightarrow\ \frac{dI}{dt} &\approx (\beta c - \nu - \mu)I \sidenote{7} \\
+    \Rightarrow\ \frac{dI}{dt} &\approx \nu\left(\frac{\beta c}{\nu} - \frac{\mu}{\nu} - 1\right)I
+\end{align*}
+
+Since the average incubation time $\dfrac{1}{\nu}$ is very much shorter than the average life expectancy $\dfrac{1}{\mu}$, so $\dfrac{\mu}{\nu} \approx 0$. Therefore, from (7), we get
+\begin{align*}
+    \frac{dI}{dt} \approx \nu(R_0 - 1)I, \qquad \text{where } R_0 \approx \frac{\beta c}{\nu} > 1.
+\end{align*}
+Thus the basic reproductive rate $R_0$ is given in terms of the number of partners $c$, the transmission probability $\beta$, and the average incubation time of the disease $\dfrac{1}{\nu}$.
+
+Now, we can get some interesting information from the analysis of the system (1)--(5) during the early stages of an epidemic. Here the population consists of almost all susceptibles, and so $N \approx S$. Therefore, the growth rate of infection, i.e.\ the HIV-positive $I$ class, is approximated by equation (8). The solution of (8) is
+\begin{align*}
+    I(t) = I(0)\,e^{\nu(R_0-1)t} = I(0)\,e^{rt}, \sidenote{10}
+\end{align*}
+where $r = \nu(R_0-1)$ is positive only if an epidemic exists (i.e.\ $R_0 > 1$), and $I(0)$ is the initial number of people introduced into the susceptible population.
+
+From (10), we observe that $I(t)$, i.e.\ infection, grows exponentially, and ultimately the whole population will be infected.
+
+\vspace{0.2cm}
+\noindent\textbf{Doubling time.}\ Suppose the doubling time is $t_d$, i.e.\ $I(t_d) = 2I(0)$. From (10), we get
+\begin{align*}
+    t_d = \frac{1}{r}\ln 2 = \frac{\ln 2}{\nu(R_0-1)}. \sidenote{11}
+\end{align*}
+
+Thus, we observe that the larger the basic reproductive rate $R_0$, the shorter the doubling time.
+
+\vspace{0.2cm}
+\noindent\textbf{Number of AIDS patients at any time $t$.}\ Substituting (10) into equation (3), we get
+\begin{align*}
+    \frac{dA}{dt} = p\nu I_0 e^{rt} - (d+\mu)A. \sidenote{12}
+\end{align*}
+
+At the initial stage of the epidemic there were no AIDS patients, so $A(0) = 0$. Therefore, the solution of (12) is
+\begin{align*}
+    A(t) = p\nu I_0\,\frac{e^{rt} - e^{-(d+\mu)t}}{r+d+\mu}, \sidenote{13}
+\end{align*}
+which is the number of AIDS patients at any time $t$.
+\section{For understanding}
+\begin{align*}
+    \frac{dA}{dt} &= p\nu I_0 e^{rt} - (d+\mu)A. \sidnote{12}\\
+    \frac{dA}{dt} + (d+\mu)A &= p\nu I_0 e^{rt}.\\
+    \text{I.F.} &= e^{\int (d+\mu)\,dt} = e^{(d+\mu)t}.
+\end{align*}
+
+Multiplying both sides by the integrating factor:
+\begin{align*}
+    \frac{d}{dt}\left[A(t)e^{(d+\mu)t}\right] = p\nu I_0\, e^{[r+(d+\mu)]t}.\\
+    A(t)e^{(d+\mu)t} = \frac{p\nu I_0}{r+d+\mu}\,e^{[r+(d+\mu)]t} + C,
+\end{align*}
+\begin{align*}
+    A(t) = \frac{p\nu I_0}{r+d+\mu}\,e^{rt} + C e^{-(d+\mu)t}.
+\end{align*}
+
+Using the initial condition at the start of the epidemic, there were no AIDS patients ($A(0) = 0$):
+\begin{align*}
+    0 = \frac{p\nu I_0}{r+d+\mu} + C \implies C = -\frac{p\nu I_0}{r+d+\mu}.
+\end{align*}
+\begin{align*}
+    A(t) = p\nu I_0\left[\frac{e^{rt} - e^{-(d+\mu)t}}{r+d+\mu}\right]. \sidnote{13}
+\end{align*}

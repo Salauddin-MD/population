@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsthm}
+\usepackage{amsmath,amssymb}
+\usepackage{cleveref}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{footmisc}
+\usepackage{comment}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{positioning}
+% --- Shrink all footnote callout marks in body text ---
+\makeatletter
+\renewcommand{\@makefnmark}{%
+  \hbox{\textsuperscript{\normalfont\tiny\@thefnmark}}% Use \tiny or \ssmall for very small marks
+}
+\makeatother
+
+% --- Optional: Set bottom footnote text size ---
+\renewcommand{\footnotelayout}{\scriptsize} % Options: \scriptsize, \tiny
+\renewcommand{\thefootnote}{\alph{footnote}}
+\newcommand{\sidenote}[1]{\tag*{\text{\small (#1)}}}
+\newcommand{\sidnote}[1]{%
+  \ifmmode
+    \tag*{\text{\small (#1)}}%
+  \else
+    \textup{(#1)}%
+  \fi
+}
+\title{Population Dynamics(508)}
+\author{MD Salauddin}
+\date{September 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+\include{chapter 1/Intro1}
+\include{chapter 1/Question1}
+\include{chapter 1/Question2}
+\include{chapter 2/Intro2}
+\include{chapter 2/Question1}
+\include{chapter 2/Question2}
+\include{chapter 2/Question3}
+\include{chapter 2/Question4}
+\include{chapter 3/Intro3}
+\include{chapter 3/Question1}
+\include{chapter 3/Question2}
+\include{chapter 3/Question3}
+\include{chapter 3/Question4}
+\include{chapter 3/Question5}
+\include{chapter 3/Question6}
+\include{chapter 3/Question7}
+\include{chapter 4/Intro4}
+\include{chapter 4/Question1}
+\include{chapter 4/Question2}
+\include{chapter 4/Question3}
+\include{chapter 4/Question4}
+\include{chapter 4/Question5}
+\include{chapter 4/Question6}
+\include{chapter 4/Question8}
+\include{chapter 4/Question9}
+\include{chapter 4/Question11}
+\include{Chapter 5/Intro 5}
+\include{Chapter 5/Question 1}
+\include{Chapter 5/Question2}
+\include{Chapter 5/Question4}
+\include{Chapter 5/Question5}
+\include{Chapter 6/Intro6}
+\include{Chapter 6/Question1}
+\include{Chapter 6/Question2}
+\include{Chapter 6/Question3}
+\include{Chapter 6/Question4}
+\include{Chapter 6/Question5}
+\include{Chapter 7/Intro7}
+\include{Chapter 7/Question1}
+\include{Chapter 7/Question2}
+\include{chapter 8/Question1}
+\end{document}

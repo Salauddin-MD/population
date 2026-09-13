@@ -1,0 +1,98 @@
+\section{Problem: Two-Species Competition Model\textcolor{green}{2021}}
+
+Identify and solve the two-species linear population model:
+\begin{align*}
+    \frac{dx}{dt} &= 3x - y \sidenote{$x(0) = 95$} \\
+    \frac{dy}{dt} &= -2x + 2y \sidenote{$y(0) = 165$}
+\end{align*}
+Determine the time when the population will become extinct.
+
+\bigskip
+\noindent \textbf{1st Part: Model Identification}
+
+Consider the system of differential equations:
+\begin{align*}
+    \frac{dx}{dt} &= 3x - y \tag{1a} \\
+    \frac{dy}{dt} &= -2x + 2y \tag{1b}
+\end{align*}
+
+From equation (1a), in the absence of $y$, $x$ increases, whereas in the presence of $y$, $x$ decreases. From equation (1b), in the absence of $x$, $y$ increases, whereas in the presence of $x$, $y$ decreases. 
+
+Since both species inhibit each other's growth rate, system (1) is a \textbf{competition model}.
+
+\bigskip
+\noindent \textbf{2nd Part: General Solution}
+
+Using the differential operator $D = \frac{d}{dt}$:
+\begin{align*}
+    (D - 3)x + y &= 0 \tag{ii} \\
+    2x + (D - 2)y &= 0 \tag{iii}
+\end{align*}
+
+Applying $[(\text{ii}) \times (D - 2) - (\text{iii})]$:
+\begin{align*}
+    (D - 3)(D - 2)x + (D - 2)y - 2x - (D - 2)y &= 0 \\
+    (D^2 - 5D + 6)x - 2x &= 0 \sidenote{eliminating $y$} \\
+    (D^2 - 5D + 4)x &= 0 \tag{iv}
+\end{align*}
+
+Equation (iv) is a homogeneous linear 2nd-order differential equation. Let $x = e^{mt}$ be a trial solution:
+\begin{align*}
+    m^2 - 5m + 4 &= 0 \sidenote{since $e^{mt} \neq 0$} \\
+    (m - 1)(m - 4) &= 0 \implies m = 1, 4
+\end{align*}
+
+Hence, the general solution for $x(t)$ is:
+\begin{align*}
+    x(t) = c_1 e^t + c_2 e^{4t}
+\end{align*}
+
+Expressing $y(t)$ using equation (1a):
+\begin{align*}
+    y &= 3x - \frac{dx}{dt} \sidenote{from (1a)} \\
+    y &= 3(c_1 e^t + c_2 e^{4t}) - \frac{d}{dt}(c_1 e^t + c_2 e^{4t}) \\
+    y &= 3c_1 e^t + 3c_2 e^{4t} - (c_1 e^t + 4c_2 e^{4t}) \\
+    \implies y(t) &= 2c_1 e^t - c_2 e^{4t}
+\end{align*}
+
+Thus, the general solution of the model is:
+\begin{align*}
+    x(t) &= c_1 e^t + c_2 e^{4t} \tag{v} \\
+    y(t) &= 2c_1 e^t - c_2 e^{4t}
+\end{align*}
+
+\bigskip
+\noindent \textbf{3rd Part: Particular Solution \& Extinction Analysis}
+
+Applying initial conditions $x(0) = 95$ and $y(0) = 165$:
+\begin{align*}
+    95 &= c_1 + c_2 \\
+    165 &= 2c_1 - c_2
+\end{align*}
+
+Adding both equations gives $3c_1 = 260 \implies c_1 = \frac{260}{3}$, which yields $c_2 = 95 - \frac{260}{3} = \frac{25}{3}$. The particular solution is:
+\begin{align*}
+    x(t) &= \frac{260}{3} e^t + \frac{25}{3} e^{4t} \tag{vi} \\
+    y(t) &= \frac{520}{3} e^t - \frac{25}{3} e^{4t} \tag{vii}
+\end{align*}
+
+\bigskip
+\noindent \textbf{Extinction Time Determination:}
+
+Let $t = T$ be the extinction time where population reaches zero.
+
+\noindent \textbf{For species $x$:}
+\begin{align*}
+    0 &= \frac{260}{3} e^T + \frac{25}{3} e^{4T} \sidenote{set $x(T) = 0$} \\
+    e^{3T} &= -\frac{260}{25} \implies T = \frac{1}{3} \ln\left(-\frac{260}{25}\right)
+\end{align*}
+Since $\ln(-260/25) \notin \mathbb{R}$, population $x$ will \textbf{never become extinct}.
+
+\smallskip
+\noindent \textbf{For species $y$:}
+\begin{align*}
+    0 &= \frac{520}{3} e^T - \frac{25}{3} e^{4T} \sidenote{set $y(T) = 0$} \\
+    e^{3T} &= \frac{520}{25} = \frac{104}{5} \\
+    \implies T &= \frac{1}{3} \ln\left(\frac{104}{5}\right) \approx 1.0118
+\end{align*}
+Since $T > 0$ is real and positive, species $y$ will become \textbf{extinct at time $T = \frac{1}{3} \ln\left(\frac{104}{5}\right)$}.

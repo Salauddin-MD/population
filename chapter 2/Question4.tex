@@ -1,0 +1,58 @@
+\section{Problem: Existence of a Limit Cycle for the system:\textcolor{green}{2021} }
+\begin{align*}
+    \dot{x} &= 4x - 4y - x(x^2 + y^2) \\
+    \dot{y} &= 4x + 4y - y(x^2 + y^2)
+\end{align*}
+and verify that $x = 2\cos(4t)$, $y = 2\sin(4t)$ is a periodic solution of this system.
+
+\bigskip
+\noindent \textbf{Solution:}
+
+Given system of differential equations:
+\begin{align*}
+    \dot{x} &= 4x - 4y - x(x^2 + y^2) \tag{1a} \\
+    \dot{y} &= 4x + 4y - y(x^2 + y^2) \tag{1b}
+\end{align*}
+
+Let $P(x, y) = 4x - 4y - x(x^2 + y^2)$ and $Q(x, y) = 4x + 4y - y(x^2 + y^2)$.
+
+Computing partial derivatives:
+\begin{align*}
+    \frac{\partial P}{\partial x} &= 4 - 3x^2 - y^2 \\
+    \frac{\partial Q}{\partial y} &= 4 - x^2 - 3y^2
+\end{align*}
+
+Taking the sum (divergence of the vector field):
+\begin{align*}
+    \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} &= (4 - 3x^2 - y^2) + (4 - x^2 - 3y^2) \\
+    &= 8 - 4(x^2 + y^2) \sidenote{divergence changes sign at $r = \sqrt{2}$}
+\end{align*}
+
+Since $\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y}$ changes sign in the plane, Bendixson's criterion does not rule out periodic orbits. Thus, the system admits a limit cycle.
+
+\bigskip
+\noindent \textbf{Verification of Periodic Solution:}
+
+Given proposed solution:
+\begin{align*}
+    x(t) &= 2\cos(4t) \tag{a} \\
+    y(t) &= 2\sin(4t)
+\end{align*}
+
+Differentiating with respect to $t$:
+\begin{align*}
+    \dot{x} &= -8\sin(4t) \tag{b} \\
+    \dot{y} &= 8\cos(4t)
+\end{align*}
+
+Substituting (a) into the right-hand side of equation (1a):
+\begin{align*}
+    \text{RHS} &= 4(2\cos 4t) - 4(2\sin 4t) - 2\cos 4t \left(4\cos^2 4t + 4\sin^2 4t\right) \sidenote{$x^2+y^2 = 4$} \\
+    &= 8\cos 4t - 8\sin 4t - 2\cos 4t (4) \\
+    &= -8\sin 4t = \dot{x}
+     \text{RHS}\\ &= 4(2\cos 4t) + 4(2\sin 4t) - 2\sin 4t \left(4\cos^2 4t + 4\sin^2 4t\right) \\
+    &= 8\cos 4t + 8\sin 4t - 2\sin 4t (4) \\
+    &= 8\cos 4t = \dot{y}
+\end{align*}
+Hence, $x(t) = 2\cos(4t), y(t) = 2\sin(4t)$ is a periodic solution of the system.\\
+\textit{There are two math problems in page around 110 on periodic solution, you should look on it.}
